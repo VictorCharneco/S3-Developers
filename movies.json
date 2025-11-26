@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "titulo": "El Padrino",
+        "director": "Francis Ford Coppola",
+        "year": 1972,
+        "genre": "Crimen"
+    },
+    {
+        "id": 2,
+        "titulo": "Forrest Gump",
+        "director": "Robert Zemeckis",
+        "year": 1994,
+        "genre": "Drama"
+    },
+    {
+        "id": 3,
+        "titulo": "Inception",
+        "director": "Christopher Nolan",
+        "year": 2010,
+        "genre": "Ciencia Ficción"
+    },
+    {
+        "id": 4,
+        "titulo": "La La Land",
+        "director": "Damien Chazelle",
+        "year": 2016,
+        "genre": "Musical"
+    },
+    {
+        "id": 5,
+        "titulo": "Parasite",
+        "director": "Bong Joon-ho",
+        "year": 2019,
+        "genre": "Thriller"
+    },
+    {
+        "id": 6,
+        "titulo": "El Señor de los Anillos: La Comunidad del Anillo",
+        "director": "Peter Jackson",
+        "year": 2001,
+        "genre": "Fantasía"
+    },
+    {
+        "id": 7,
+        "titulo": "Titanic",
+        "director": "James Cameron",
+        "year": 1997,
+        "genre": "Romance"
+    },  
+    {
+        "id": 8,
+        "titulo": "Gladiador",
+        "director": "Ridley Scott",
+        "year": 2000,
+        "genre": "Acción"
+    },
+    {
+        "id": 9,
+        "titulo": "El Origen del Planeta de los Simios",
+        "director": "Rupert Wyatt",
+        "year": 2011,
+        "genre": "Ciencia Ficción"
+    },
+    {
+        "id": 10,
+        "titulo": "Coco",
+        "director": "Lee Unkrich",
+        "year": 2017,
+        "genre": "Animación"
+    }
+]
