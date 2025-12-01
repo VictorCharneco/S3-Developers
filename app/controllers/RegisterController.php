@@ -6,18 +6,18 @@ class RegisterController extends ApplicationController{
             $password = $this->_getParam("password");
             //we have to validate the inputs
             try{   
-                if(!UtilityModel::validateUsername($username)){
+                if(!FormValidations::validateUsername($username)){
                     throw new Exception("Invalid username format.");
                 }
 
-                if(!UtilityModel::validatePassword($password)){
+                if(!FormValidations::validatePassword($password)){
                     throw new Exception("Invalid password format.");
                 }
                 $user = new User($username, $password, "");
                 if($user->registerUser()){
                     $_SESSION["username"] = $username;
                     $_SESSION["isLoggedIn"] = true;
-                    header("Location: " . WEB_ROOT . "/test");
+                    header("Location: " . WEB_ROOT . "/home");
                     exit();
                 }
 

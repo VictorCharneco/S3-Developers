@@ -25,7 +25,15 @@
             "password": "lucas123"
         },
         {
-            "username": "lucas",        
+            "username": "lucas",
+            "password": "lucas123"
+        },
+        {
+            "username": "Lucas",
+            "password": "lucas123"
+        },
+        {
+            "username": "testeo123",
             "password": "lucas123"
         }
     ],
