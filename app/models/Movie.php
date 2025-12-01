@@ -1,6 +1,6 @@
 <?php
 
-    class MovieModel{
+    class Movie{
 
         private $jsonPath;
 
