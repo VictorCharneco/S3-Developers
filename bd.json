@@ -47,6 +47,10 @@
             "name": "The Matrix",
             "startTime": "2024-07-01T19:30:00",
             "maxUsers": 1
+        },
+        {
+            "name": "Interstellar",
+            "description": "Una pasada de pel\u00edcula. PELICUL\u00d3N."
         }
     ],
     "user": [

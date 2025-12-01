@@ -9,9 +9,9 @@ class Movie extends Model{
     private string $url;
 
 
-    public function __construct($name, $url){
+    public function __construct($name, $description){
         $this->name = $name;
-        $this->url = $url;
+        $this->description = $description;
     }
 
     public static function getAllMovies():array{

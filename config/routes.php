@@ -15,5 +15,5 @@ $routes = array(
 	'/login' => 'login#login',
 	'/register' => 'register#register',
 	'/listFilms' => 'listFilms#listFilms',
-	
+	'/addFilm' => 'addFilm#addFilm'
 );
