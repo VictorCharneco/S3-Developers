@@ -14,4 +14,6 @@ $routes = array(
 	'/test' => 'test#index',
 	'/login' => 'login#login',
 	'/register' => 'register#register',
+	'/listFilms' => 'listFilms#listFilms',
+	
 );

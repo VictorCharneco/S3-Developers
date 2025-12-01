@@ -37,7 +37,7 @@
             "password": "lucas123"
         }
     ],
-    "films": [
+    "movie": [
         {
             "name": "Inception",
             "startTime": "2024-07-01T19:30:00",
