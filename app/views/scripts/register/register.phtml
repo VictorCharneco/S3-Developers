@@ -1,0 +1,17 @@
+<style>
+    <?php include 'stylesheets\card.css';
+     ?>
+</style>
+<div id="card">
+<h3>Register</h3>
+    <form method="post" action="<?= $this->baseUrl() ?>/register">
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password" id="password" name="password" required>Password</label>
+        <input type="password" id="password" name="password" required>
+  
+        <button type="submit" class="button" registerAction>Register</button>
+</form>
+</div>

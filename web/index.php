@@ -1,6 +1,8 @@
 <?php
 
-error_reporting(E_ALL|E_STRICT);
+//error_reporting(E_ALL|E_STRICT); esta linea de codigo genera error al iniciar la aplicacion !!!!
+
+error_reporting(E_ALL & ~E_DEPRECATED);
 ini_set('display_errors', 1);
 date_default_timezone_set('CET');
 
@@ -10,6 +12,9 @@ define('WEB_ROOT', substr($_SERVER['SCRIPT_NAME'], 0, strpos($_SERVER['SCRIPT_NA
 define('ROOT_PATH', realpath(dirname(__FILE__) . '/../'));
 // defines the cms path
 define('CMS_PATH', ROOT_PATH . '/lib/base/');
+
+//defines json data path	
+define('JSON_DATA_PATH', ROOT_PATH . '/bd.json');
 
 // starts the session
 session_start();

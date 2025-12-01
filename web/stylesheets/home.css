@@ -1,0 +1,117 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body estilo cine */
+body {
+    background-color: #0d0d0d; /* negro sala de cine */
+    color: #f5f5f5; /* texto claro */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    margin-top: 12vh;
+    animation: fadeIn 1.5s ease;
+    overflow: visible;
+}
+
+/* Logo con animación minimalista */
+.logo-animation {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Play icon estilo proyector */
+.play-icon {
+    width: 0;
+    height: 0;
+    border-left: 40px solid #0077ff; /* dorado tipo foco */
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    filter: drop-shadow(0 0 12px #323232);
+}
+
+/* Animaciones */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Textos estilo cartel */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0077ff; /* dorado cartel */
+    text-shadow: 0 0 8px rgba(54, 54, 54, 0.6);
+}
+
+p {
+    opacity: 0.85;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #cccccc;
+}
+
+/* Grid general */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Tarjeta de película */
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Imagen */
+.movie-card img {
+    width: 95%;
+    height: 95%;
+    border-radius: 14px;
+    display: block;
+    transition: transform 0.4s ease;
+    filter: brightness(0.85);
+}
+
+/* Animación hover */
+.movie-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.4);
+}
+
+.movie-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(1);
+}
+
+/* Animación flotante opcional */
+.movie-card {
+    animation: float-card 6s ease-in-out infinite;
+}
+
+@keyframes float-card {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
