@@ -10,6 +10,14 @@ class Movie extends Model{
 
 
     public function __construct($name, $description){
+        $data = UtilityModel::getJsonData();
+        if(!empty($data["movie"])){
+            $lastMovie = end($data["movie"]);
+            $this->id = $lastMovie["id"] + 1;
+        }else{
+            $this->id = 1;
+        }
+
         $this->name = $name;
         $this->description = $description;
     }
@@ -25,6 +33,13 @@ class Movie extends Model{
         $data["movie"][] = ["name" => $this -> name , "description" => $this -> description];
         UtilityModel::saveJsonData($data);
     }
+
+    public static function deleteMovie(int $id):void{
+        $data = UtilityModel::getJsonData();
+        array_splice($data["movie"], $id, 1);
+        UtilityModel::saveJsonData(($data));
+    }
+
 
 }
 ?>

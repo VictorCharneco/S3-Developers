@@ -1,0 +1,13 @@
+<?php $moviesData = Movie::getAllMovies()?>
+
+<div>
+    <?php
+    
+    foreach($moviesData as $movie):?>
+        <p><?= $movie["name"]; ?></p>
+
+    <?php endforeach; ?>
+
+
+
+</div>

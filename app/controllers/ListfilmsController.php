@@ -2,9 +2,14 @@
 
 class ListfilmsController extends ApplicationController{
 
+    public $moviesData;
+
     public function listFilmsAction(){
-        print_r(Movie::getAllMovies());
+        $moviesData = (Movie::getAllMovies());
+        $this->moviesData = $moviesData;
     }
+
+    
 
 }
 

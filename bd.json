@@ -51,6 +51,42 @@
         {
             "name": "Interstellar",
             "description": "Una pasada de pel\u00edcula. PELICUL\u00d3N."
+        },
+        {
+            "name": "Interstellar",
+            "description": "Una pasada de pel\u00edcula. PELICUL\u00d3N."
+        },
+        {
+            "name": "Avatar",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por James Cameron."
+        },
+        {
+            "name": "Titanic",
+            "description": "Pel\u00edcula dram\u00e1tica y rom\u00e1ntica dirigida por James Cameron."
+        },
+        {
+            "name": "The Godfather",
+            "description": "Pel\u00edcula de crimen y drama dirigida por Francis Ford Coppola."
+        },
+        {
+            "name": "Pulp Fiction",
+            "description": "Pel\u00edcula de crimen y drama dirigida por Quentin Tarantino."
+        },
+        {
+            "name": "The Dark Knight",
+            "description": "Pel\u00edcula de superh\u00e9roes dirigida por Christopher Nolan."
+        },
+        {
+            "name": "Forrest Gump",
+            "description": "Pel\u00edcula dram\u00e1tica y comedia dirigida por Robert Zemeckis."
+        },
+        {
+            "name": "The Shawshank Redemption",
+            "description": "Pel\u00edcula dram\u00e1tica dirigida por Frank Darabont."
+        },
+        {
+            "name": "The Lord of the Rings: The Return of the King",
+            "description": "Pel\u00edcula de fantas\u00eda y aventura dirigida por Peter Jackson."
         }
     ],
     "user": [
