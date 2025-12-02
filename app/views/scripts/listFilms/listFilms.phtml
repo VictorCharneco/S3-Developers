@@ -1,6 +1,10 @@
 <?php $moviesData = Movie::getAllMovies()?>
 
-<div>
+<style>
+	<?php include 'stylesheets/listFilms.css';?>
+</style>
+
+<div class="list-films-container">
     <?php
     
     foreach($moviesData as $movie):?>
