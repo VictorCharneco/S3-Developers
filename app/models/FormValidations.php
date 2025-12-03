@@ -19,7 +19,6 @@ class FormValidations extends Model{
     public static function validateUsername($username){
         return preg_match(self::$usernameRegex, $username);
     }
-
     
 }
 

@@ -1,17 +1,24 @@
-<style>
-    <?php include 'stylesheets\card.css';
-     ?>
-</style>
+<link rel="stylesheet" href="stylesheets/card.css">
+<link rel="stylesheet" href="stylesheets/validations.css">
 <div id="card">
-<h3>Register</h3>
+    <h3>Register</h3>
     <form method="post" action="<?= $this->baseUrl() ?>/register">
-        
+         <p class="validation">
+           <?php echo $this -> userExistsError ; ?>
+        </p>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
+        <p class="validation">
+           <?php echo $this -> usernamevalidationError ; ?>
+        </p>
 
-        <label for="password" id="password" name="password" required>Password</label>
+
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-  
+         <p class="validation">
+           <?php echo $this -> passwordvalidationError ; ?>
+        </p>
+
         <button type="submit" class="button" registerAction>Register</button>
-</form>
+    </form>
 </div>
