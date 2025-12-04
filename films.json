@@ -1,0 +1,120 @@
+{
+    "users": [
+        {
+            "username": "lxcxs",
+            "email": "lxcxs@gmail.com",
+            "role": "admin",
+            "password": "admin123"
+        },
+        {
+            "username": "victor",
+            "email": "victor@gmail.com",
+            "role": "client",
+            "password": "client123"
+        },
+        {
+            "username": "test",
+            "password": "test"
+        },
+        {
+            "username": "lucas",
+            "password": "testeo"
+        },
+        {
+            "username": "lucassss",
+            "password": "lucas123"
+        },
+        {
+            "username": "lucas",
+            "password": "lucas123"
+        },
+        {
+            "username": "Lucas",
+            "password": "lucas123"
+        },
+        {
+            "username": "testeo123",
+            "password": "lucas123"
+        }
+    ],
+    "movie": [
+        {
+            "id": 1,
+            "name": "Inception",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por Christopher Nolan.",
+            "urlImage": "\/images\/filmCovers\/Inception.jpg"
+        },
+        {
+            "id": 2,
+            "name": "The Matrix",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski.",
+            "urlImage": "\/images\/filmCovers\/TheMatrix.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Interstellar",
+            "description": "Una pasada de pel\u00edcula. PELICUL\u00d3N.",
+            "urlImage": "\/images\/filmCovers\/Interstellar.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Avatar",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Avatar.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Titanic",
+            "description": "Pel\u00edcula dram\u00e1tica y rom\u00e1ntica dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Titanic.jpg"
+        },
+        {
+            "id": 6,
+            "name": "The Godfather",
+            "description": "Pel\u00edcula de crimen y drama dirigida por Francis Ford Coppola.",
+            "urlImage": "\/images\/filmCovers\/TheGodfather.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Pulp Fiction",
+            "description": "Pel\u00edcula de crimen y drama dirigida por Quentin Tarantino.",
+            "urlImage": "\/images\/filmCovers\/PulpFiction.jpg"
+        },
+        {
+            "id": 8,
+            "name": "The Dark Knight",
+            "description": "Pel\u00edcula de superh\u00e9roes dirigida por Christopher Nolan.",
+            "urlImage": "\/images\/filmCovers\/TheDarkKnight.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Forrest Gump",
+            "description": "Pel\u00edcula dram\u00e1tica y comedia dirigida por Robert Zemeckis.",
+            "urlImage": "\/images\/filmCovers\/ForrestGump.jpg"
+        },
+        {
+            "id": 10,
+            "name": "The Shawshank Redemption",
+            "description": "Pel\u00edcula dram\u00e1tica dirigida por Frank Darabont.",
+            "urlImage": "\/images\/filmCovers\/TheShawshankRedemption.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Gladiator",
+            "description": "Pel\u00edcula \u00e9pica y dram\u00e1tica dirigida por Ridley Scott.",
+            "urlImage": "\/images\/filmCovers\/Gladiator.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Jurassic Park",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n y aventura dirigida por Steven Spielberg.",
+            "urlImage": "\/images\/filmCovers\/JurassicPark.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Indiana Jones Temple of Doom",
+            "description": "Pel\u00edcula de Steven Spielberg",
+            "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
+        }
+    ]
+}

@@ -16,5 +16,6 @@ $routes = array(
 	'/register' => 'register#register',
 	'/listFilms' => 'listFilms#listFilms',
 	'/addFilm' => 'addFilm#addFilm',
-    '/deleteFilm' => 'deleteFilm#deleteFilm'
+    '/deleteFilm' => 'deleteFilm#deleteFilm',
+	'/updateFilm' => 'updateFilm#updateFilm'
 );

@@ -2,16 +2,19 @@
 
 class AddfilmController extends ApplicationController{
 
-    public function addFilmAction(){
-    $name = "Interstellar";
-    $description = "Una pasada de película. PELICULÓN.";
 
-    $movie = new Movie($name, $description);
-    $movie->addMovie();
-    
-
+    public function addfilmAction(){
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            $name = $_POST["name"];
+            $description = $_POST["description"];
+            $movie = new Movie ($name, $description);
+            $movie -> addMovie();
+            header("Location: /listFilms");
+            exit();
+        }
     }
 
+    
 }
 
 

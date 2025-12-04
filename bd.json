@@ -41,12 +41,12 @@
         {
             "name": "Inception",
             "startTime": "2024-07-01T19:30:00",
-            "maxUsers": 3
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por Christopher Nolan."
         },
         {
             "name": "The Matrix",
             "startTime": "2024-07-01T19:30:00",
-            "maxUsers": 1
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski."
         },
         {
             "name": "Interstellar",
@@ -81,8 +81,12 @@
             "description": "Pel\u00edcula dram\u00e1tica dirigida por Frank Darabont."
         },
         {
-            "name": "The Lord of the Rings: The Return of the King",
-            "description": "Pel\u00edcula de fantas\u00eda y aventura dirigida por Peter Jackson."
+            "name": "Gladiator",
+            "description": "Pel\u00edcula \u00e9pica y dram\u00e1tica dirigida por Ridley Scott."
+        },
+        {
+            "name": "Jurassic Park",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n y aventura dirigida por Steven Spielberg."
         }
     ],
     "user": [
