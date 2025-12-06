@@ -39,12 +39,6 @@
     ],
     "movie": [
         {
-            "id": 1,
-            "name": "Inception",
-            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por Christopher Nolan.",
-            "urlImage": "\/images\/filmCovers\/Inception.jpg"
-        },
-        {
             "id": 2,
             "name": "The Matrix",
             "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski.",
@@ -114,6 +108,18 @@
             "id": 13,
             "name": "Indiana Jones Temple of Doom",
             "description": "Pel\u00edcula de Steven Spielberg",
+            "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Gladiator2",
+            "description": "Ajuste imagen",
+            "urlImage": "\/images\/filmCovers\/Gladiator2.jpg"
+        },
+        {
+            "id": 15,
+            "name": "afiahsgohasg",
+            "description": "aslgjalgshasgd",
             "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
         }
     ]

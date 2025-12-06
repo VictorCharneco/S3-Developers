@@ -3,9 +3,16 @@
 class DeletefilmController extends ApplicationController{
     
     public function deleteFilmAction(){
-        $id = 0;
-        Movie::deleteMovie($id);
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            $id = intval($_POST["id"]);
+            Movie::deleteMovie($id);
+
+            
+            header("Location: /listFilms");
+            exit();
+        }
     }
+
 }
 
 ?>

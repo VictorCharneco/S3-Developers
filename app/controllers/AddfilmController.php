@@ -1,9 +1,13 @@
 <?php
 
-class AddfilmController extends ApplicationController{
 
+class AddfilmController extends ApplicationController{
+    public $moviesData;
 
     public function addfilmAction(){
+
+        $this -> moviesData = UtilityModel::getFilmsData();
+
         if($_SERVER["REQUEST_METHOD"] === "POST"){
             $name = $_POST["name"];
             $description = $_POST["description"];
@@ -24,6 +28,8 @@ class AddfilmController extends ApplicationController{
             $newFilm -> addMovie();
             header("Location: /listFilms");
             exit();
+        }else{
+            $moviesData = Movie::getAllMovies();
         }
     }
 
