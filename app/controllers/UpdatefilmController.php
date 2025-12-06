@@ -4,7 +4,6 @@ class UpdatefilmController extends ApplicationController{
     public $moviesData;
 
     public function updatefilmAction(){
-        $this -> moviesData = UtilityModel::getFilmsData();
          
         if($_SERVER["REQUEST_METHOD"] === "POST"){
             $id= (int)$_POST["select-movie"];
@@ -14,7 +13,7 @@ class UpdatefilmController extends ApplicationController{
             $data = UtilityModel::getFilmsData();
             
             foreach($data["movie"] as &$movie){
-                if($movie["id"] === $id){
+                if($movie["id"] == $id){
                     $movie["name"] = $name;
                     $movie["description"] = $description;
                     
@@ -29,13 +28,14 @@ class UpdatefilmController extends ApplicationController{
                     }
                     break;
                 }
-        
+            }
+
             UtilityModel::saveFilmData($data);
             header("Location: /listFilms");
-            exit();}
+            exit();
         }else{
-            $moviesData = Movie::getAllMovies();
-            $this -> view -> moviesData = $moviesData;
+            $this->moviesData = UtilityModel::getFilmsData()["movie"];
+            $this -> view -> moviesData = $this -> moviesData;
         }
     }
 }
