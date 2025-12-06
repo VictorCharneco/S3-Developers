@@ -42,8 +42,13 @@ class Movie extends Model{
 
     public static function deleteMovie(int $id):void{
         $data = UtilityModel::getFilmsData();
-        array_splice($data["movie"], $id, 1);
-        UtilityModel::saveFilmData(($data));
+        foreach($data["movie"] as $index => $movie){
+            if($movie["id"] === $id){
+                array_splice($data["movie"], $index, 1);
+                break;
+            }
+        }
+        UtilityModel::saveFilmData($data);
     }
 
     public function updateMovie():void{
