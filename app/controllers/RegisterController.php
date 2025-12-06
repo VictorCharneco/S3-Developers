@@ -8,38 +8,42 @@ class RegisterController extends ApplicationController{
     public $passwordvalidationError;
 
     public function registerAction(){
-        $this->data = UtilityModel::getJsonData();
+        $this->data = UtilityModel::getJsonDataUser();
         if($this->getRequest()->isPost()){
             $username = $this-> _getParam("username");
             $password = $this->_getParam("password");
             //we have to validate the inputs
-            try{   
-                if(!FormValidations::validateUsername($username)){
 
+                if(!FormValidations::validateUsername($username))
+                {
                     $this -> usernamevalidationError = "Invalid username format.";
-                    throw new Exception(message: "Invalid username format.");
                 }
 
-                if(!FormValidations::validatePassword($password)){
+                if(!FormValidations::validatePassword($password))
+                {
                     $this -> passwordvalidationError = "Invalid password format.";
-                    throw new Exception(message: "Invalid password format.");}
-                $user = new User($username, $password, "");
+                }
+
+                $user = new User($username, $password, true);
                 if($user->registerUser()){
                     $_SESSION["username"] = $username;
+                    $_SESSION["id"] = $user -> getId();
+                    $_SESSION["password"] = $password;
                     $_SESSION["isLoggedIn"] = true;
-                    header("Location: " . WEB_ROOT . "/login");
+                    $_SESSION["urlAvatar"] = $user ->getUrlAvatar();
+                    header(header: "Location: " . WEB_ROOT . "/home");
                     exit();
                 }else {
                     $this -> userExistsError = "User already exists.";
-                    throw new Exception("User already exists.");
                 }
 
-            }catch(Exception $e){
                 $this->view->userExistsError = $this -> userExistsError;
                 $this -> view -> usernamevalidationError = $this -> usernamevalidationError;
                 $this -> view -> passwordvalidationError = $this -> passwordvalidationError;
             }
-    }
+               
+          
+    
     }
 
 
