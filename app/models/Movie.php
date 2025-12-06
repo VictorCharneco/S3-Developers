@@ -6,7 +6,7 @@ class Movie extends Model{
     private string $name;
     private int $year;
     private string $description;
-    private string $url;
+    public string $urlImage;
 
 
     public function __construct($name, $description){
@@ -20,6 +20,7 @@ class Movie extends Model{
 
         $this->name = $name;
         $this->description = $description;
+        $this->urlImage = "";
     }
 
     public static function getAllMovies():array{
@@ -30,7 +31,12 @@ class Movie extends Model{
 
     public function addMovie():void{
         $data = UtilityModel::getFilmsData();
-        $data["movie"][] = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description];
+        $newFilm = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description];
+
+        if ($this-> urlImage){
+            $newFilm["urlImage"] = $this -> urlImage;
+        }
+        $data["movie"][] = $newFilm;
         UtilityModel::saveFilmData($data);
     }
 
