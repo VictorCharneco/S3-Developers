@@ -13,6 +13,7 @@
 <ul>
     <li><a href="<?= $this->baseUrl() ?>/home">Home</a></li>
     <li><a href="<?= $this->baseUrl() ?>/listFilms">List Films</a></li>
+		<li><a href="<?= $this->baseUrl() ?>/listCategories">List Categories</a></li>
 
     <?php if (empty($_SESSION['isLoggedIn'])): ?>
         <li><a href="<?= $this->baseUrl() ?>/register">Register</a></li>
