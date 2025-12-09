@@ -3,6 +3,7 @@
 
 class AddfilmController extends ApplicationController{
     public $moviesData;
+    public $categoriesData;
 
     public function addfilmAction(){
 
@@ -22,6 +23,10 @@ class AddfilmController extends ApplicationController{
                 }
             }
             $newFilm = new Movie ($name, $description);
+
+            $categoryId = (int)$_POST["categories"];
+            $newFilm -> setCategory($categoryId);
+
             if ($urlImage){
                 $newFilm -> setUrlImage($urlImage);
             }
@@ -29,8 +34,19 @@ class AddfilmController extends ApplicationController{
             header("Location: /listFilms");
             exit();
         }else{
-            $moviesData = Movie::getAllMovies();
+            $this -> categoriesData = UtilityModel::getJsonCategory()["category"];
+            $this -> view -> categoriesData = $this -> categoriesData;
         }
+    }
+
+    public function categoryExists(int $categoryId):bool{
+        $categoriesData = UtilityModel::getJsonCategory();
+        foreach($categoriesData as $category){
+            if($category["id"] === $categoryId){
+                return true;
+            }
+        }
+        return false;
     }
 
     

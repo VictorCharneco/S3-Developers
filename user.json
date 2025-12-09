@@ -10,6 +10,12 @@
             "username": "lucas123",
             "password": "lucas123",
             "urlAvatar": "\/images\/userAvatars\/tenet.jpg"
+        },
+        {
+            "id": 3,
+            "username": "VictorC",
+            "password": "victor123",
+            "urlAvatar": "\/images\/userAvatars\/Captura de pantalla 2025-12-09 a las 12.23.30.png"
         }
     ]
 }

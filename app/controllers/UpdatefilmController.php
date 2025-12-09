@@ -2,6 +2,7 @@
 
 class UpdatefilmController extends ApplicationController{
     public $moviesData;
+    public $categoriesData;
 
     public function updatefilmAction(){
          
@@ -9,6 +10,7 @@ class UpdatefilmController extends ApplicationController{
             $id= (int)$_POST["select-movie"];
             $name = $_POST["name"];
             $description = $_POST["description"];
+            $categoryId = (int)$_POST["categories"];
 
             $data = UtilityModel::getFilmsData();
             
@@ -16,6 +18,7 @@ class UpdatefilmController extends ApplicationController{
                 if($movie["id"] == $id){
                     $movie["name"] = $name;
                     $movie["description"] = $description;
+                    $movie["categories"] = [$categoryId];
                     
                     if(!empty($_FILES["file"]["name"])){
                         $dire = "images/filmCovers/";
@@ -35,7 +38,9 @@ class UpdatefilmController extends ApplicationController{
             exit();
         }else{
             $this->moviesData = UtilityModel::getFilmsData()["movie"];
+            $this->categoriesData = UtilityModel::getJsonCategory()["category"];
             $this -> view -> moviesData = $this -> moviesData;
+            $this -> view -> categoriesData = $this -> categoriesData;
         }
     }
 }

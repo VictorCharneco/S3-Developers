@@ -23,6 +23,15 @@
         <label for="description" name="description">Ajustar descripcion: </label>
         <input type="text" id="description" name="description">
         <label for="file" id="file">Nueva imagen</label>
+        <label for="categories">Selecciona categoría: </label>
+        <select id="categories" name="categories">
+
+            <?php foreach ($this->categoriesData as $category): ?>
+                <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+            <?php endforeach; ?>
+        
+        </select>
+        
         <input type="file" id="file" name="file" accept="image/*">
         <button type="submit">Actualizar datos</button>
     </form>

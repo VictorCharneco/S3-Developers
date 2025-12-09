@@ -7,6 +7,7 @@ class Movie extends Model{
     private int $year;
     private string $description;
     private string $urlImage;
+    private array $categoryId = [];
 
 
     public function __construct($name, $description){
@@ -23,6 +24,10 @@ class Movie extends Model{
         $this->urlImage = "";
     }
 
+    public function setCategory(int $categoryId):void{
+        $this->categoryId[] = $categoryId;
+    }
+
     public function setUrlImage(string $urlImage):void{
         $this->urlImage = $urlImage;
     }
@@ -35,7 +40,7 @@ class Movie extends Model{
 
     public function addMovie():void{
         $data = UtilityModel::getFilmsData();
-        $newFilm = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description];
+        $newFilm = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description, "categories" => $this->categoryId];
 
         if ($this-> urlImage){
             $newFilm["urlImage"] = $this -> urlImage;
@@ -68,6 +73,23 @@ class Movie extends Model{
                 $movie["name"] = $this -> name;
                 $movie["description"] = $this -> description;
                 break;
+            }
+        }
+        UtilityModel::saveFilmData($data);
+    }
+
+    //añadir categorias a las peliculas
+    public function addCategoryToFilm(int $categoryId):void{
+        if(!UtilityModel::getJsonCategory()){
+            return;
+        }
+        $data = UtilityModel::getFilmsData();
+        foreach($data["movie"] as &$movie){
+            if($movie["id"] === $this -> id){
+                if(!isset($movie["categories"])){
+                    $movie["categories"] = [];
+            }
+                $movie["categories"][] = $categoryId;
             }
         }
         UtilityModel::saveFilmData($data);
