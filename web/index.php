@@ -16,6 +16,8 @@ define('CMS_PATH', ROOT_PATH . '/lib/base/');
 //defines json data path	
 define('JSON_DATA_PATH', ROOT_PATH . '/bd.json');
 
+//defines json data path_films
+define('JSON_FILMS', ROOT_PATH . '/films.json');
 define('JSON_DATA_PATH_CATEGORY', ROOT_PATH . '/categories.json'); //vs
 define('JSON_DATA_PATH_USER', ROOT_PATH . '/user.json');
 

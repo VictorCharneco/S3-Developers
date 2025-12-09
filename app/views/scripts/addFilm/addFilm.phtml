@@ -1,0 +1,17 @@
+
+<style>
+    <?php include 'stylesheets/addFilm.css';?>
+</style>
+
+<div class="add-film-container">
+    <h2>Nueva Pelicula</h2>
+    <form action="/addFilm" method="post" enctype="multipart/form-data">
+        <label for="name" name="name">Nombre de la pelicula: </label>
+        <input type="text" id="name" name="name" required>
+        <label for="description" name="description">Descripcion: </label>
+        <input type="text" id="description" name="description" required>
+        <label for="file" id="file">Añade una imagen</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <button type="submit">Añadir</button>
+    </form>
+</div>

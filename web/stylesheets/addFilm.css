@@ -1,0 +1,58 @@
+.add-film-container {
+    width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffffcc;
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.add-film-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-film-container label {
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-film-container input,
+.add-film-container input[type="file"],
+.add-film-container select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.add-film-container input[type="file"]::file-selector-button {
+    padding: 12px;
+    border-radius: 12px;
+    background: #ddd;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.add-film-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: #007aff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-film-container button:hover {
+    background: #0066d6;
+}
