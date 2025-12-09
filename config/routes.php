@@ -13,5 +13,7 @@ $routes = array(
 	'/home' => 'home#home',
 	'/test' => 'test#index',
 	'/login' => 'login#login',
+	'/logout' => 'logout#logout',
 	'/register' => 'register#register',
+	'/edit_profile' => 'editProfile#editProfile'
 );

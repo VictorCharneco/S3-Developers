@@ -2,7 +2,8 @@
 
 class LoginController extends ApplicationController{
 
-        
+    public $validotionText;
+
     /**
      * loginAction
      * Handles user login
@@ -15,22 +16,20 @@ class LoginController extends ApplicationController{
             $username = $this-> _getParam("username");
             $password = $this->_getParam("password");
             //we have to validate the user
-            try{
-                $user = new User($username, $password, "");
-                if($user->loginUser()){
+            $user = new User($username, $password,false);
+            if($user->loginUser()){
                     //User is valid, we start the session
-                    $_SESSION["username"] = $username;
-                    $_SESSION["isLoggedIn"] = true;
+                $_SESSION["username"] = $username;
+                $_SESSION["password"] = $password;
+                $_SESSION["isLoggedIn"] = true;
+                $_SESSION["urlAvatar"] = $user -> getUrlAvatar();
+                $_SESSION["id"] = $user -> getId();
                     //Redirect to home or dashboard
-                    header("Location: " . WEB_ROOT . "/test");
+                    header("Location: " . WEB_ROOT . "/home");
                     exit();
                 }else{
-                    throw new Exception("Invalid username or password.");
+                    $this -> view -> validationText = "Invalid username or password";
                 }
-
-            }catch(Exception $e){
-                echo "Error: " . $e->getMessage();
-            }
         }
     }
 }
