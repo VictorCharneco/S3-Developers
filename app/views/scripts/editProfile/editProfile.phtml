@@ -5,13 +5,13 @@
     <form method="post" enctype="multipart/form-data" action="<?= $this->baseUrl() ?>/edit_profile">
 
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username">
         <p class="validation">
            <?php echo $this -> usernamevalidationError ; ?>
         </p>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="New Password" required>
+        <input type="password" id="password" name="password" placeholder="New Password">
          <p class="validation">
            <?php echo $this -> passwordvalidationError ; 
 ?>

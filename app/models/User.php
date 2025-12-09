@@ -18,7 +18,7 @@
             if ($isNew) {
                 foreach($data["users"] as $user) {
                     if ($username == $user["username"]) {
-                        throw new Exception("El usuario ya existe");
+                        return;
                     }
                 }
                  if(!empty($data["users"])){ 
@@ -84,20 +84,11 @@
         $userExists = false;
         //First we need to get json data
         $data = UtilityModel::getJsonDataUser();
-        //Check if username exists
-        foreach($data["users"] as $user){
-            if($user["username"] == $this -> username){
-                $userExists = true;
-                return false;
-            }
-        }
-        //If user does not exist we register it
-        if(!$userExists){   
             $this -> urlAvatar = EMPTY_AVATAR_PATH;
             $data["users"][] = ["id" => $this -> id , "username" => $this -> username, "password" => $this -> password, "urlAvatar" => $this -> urlAvatar];
             UtilityModel::saveJsonDataUser($data);
             return true;
-        }
+        
     }
 
     public function loginUser(){
@@ -126,6 +117,10 @@
 
 
     public function editUser(int $id, string $username, string $password,string $avatarFile){
+            $emptyUsername = empty($username);
+            $emptyPassword = empty($password);
+            $emptyAvatar  = empty($nameAvatar);
+     
     $data = UtilityModel::getJsonDataUser();
 
     // Verificar si el username ya existe en otro usuario
@@ -137,8 +132,10 @@
 
     foreach ($data["users"] as $key => $user) {
         if ($user["id"] == $id) {
-            $data["users"][$key]["username"] = $username;
-            $data["users"][$key]["password"] = $password;
+            if(!$emptyUsername)
+                $data["users"][$key]["username"] = $username;
+            if(!$emptyPassword)
+                $data["users"][$key]["password"] = $password;
             if (!empty($avatarFile)) 
                 $data["users"][$key]["urlAvatar"] = "/images/userAvatars/" . $avatarFile;
             
@@ -158,6 +155,19 @@
         //We have to save avatar Image on web/images/userAvatars
         move_uploaded_file($fileImage, "web/images/userAvatars");
     }
+    
+      public function checkIfUsernameExists(string $username) {
+        $data = UtilityModel::getJsonDataUser();
+        foreach ($data["users"] as $user) {
+            if ($user["username"] == $username) {
+                return true;
+            }
+        }
+        return false;
     }
+
+
+    }
+
 
 ?>
