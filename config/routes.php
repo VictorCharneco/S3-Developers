@@ -13,10 +13,11 @@ $routes = array(
 	'/home' => 'home#home',
 	'/test' => 'test#index',
 	'/login' => 'login#login',
+	'/logout' => 'logout#logout',
 	'/register' => 'register#register',
 	'/listCategories' => 'listCategory#listCategory',
 	'/createCategories' => 'createCategory#createCategory',
 	'/updateCategories' => 'updateCategory#updateCategory',
 	'/deleteCategories' => 'deleteCategory#deleteCategory',
-
+	'/edit_profile' => 'editProfile#editProfile'
 );

@@ -10,14 +10,25 @@
 </head>
 <header>
 	<nav>
-		<ul>
-			<li><a href="<?= $this->baseUrl() ?>/home">Home</a></li>
-			<li><a href="<?= $this->baseUrl() ?>/register">Register</a></li>
-			<li><a href="<?= $this->baseUrl() ?>/login">Login</a></li>
-			<li><a href="<?= $this->baseUrl() ?>/listFilms">List Films</a></li>
-			<li><a href="<?= $this->baseUrl() ?>/listCategories">List Categories</a></li>
-			<li><a href="<?= $this->baseUrl() ?>/logout">Logout</a></li>
-		</ul>
+<ul>
+    <li><a href="<?= $this->baseUrl() ?>/home">Home</a></li>
+    <li><a href="<?= $this->baseUrl() ?>/listFilms">List Films</a></li>
+		<li><a href="<?= $this->baseUrl() ?>/listCategories">List Categories</a></li>
+
+    <?php if (empty($_SESSION['isLoggedIn'])): ?>
+        <li><a href="<?= $this->baseUrl() ?>/register">Register</a></li>
+        <li><a href="<?= $this->baseUrl() ?>/login">Login</a></li>
+    <?php else: ?>
+        <li><a href="<?= $this->baseUrl() ?>/logout">Logout</a></li>
+        <?php if (!empty($_SESSION['urlAvatar'])): ?>
+            <li>
+                <a href="<?= $this->baseUrl() ?>/edit_profile">
+                    <img src="<?= htmlspecialchars($_SESSION['urlAvatar']) ?>" alt="Avatar" class="avatar">
+                </a>
+            </li>
+        <?php endif; ?>
+    <?php endif; ?>
+</ul>
 </header>
 <body>
 	<?php echo $this->content(); ?>

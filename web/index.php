@@ -17,6 +17,13 @@ define('CMS_PATH', ROOT_PATH . '/lib/base/');
 define('JSON_DATA_PATH', ROOT_PATH . '/bd.json');
 
 define('JSON_DATA_PATH_CATEGORY', ROOT_PATH . '/categories.json'); //vs
+define('JSON_DATA_PATH_USER', ROOT_PATH . '/user.json');
+
+
+define( 'AVATAR_PATH', '/images/userAvatars/');
+
+
+define('EMPTY_AVATAR_PATH', '/images/userAvatars/avatar-empty.png');
 
 // starts the session
 session_start();

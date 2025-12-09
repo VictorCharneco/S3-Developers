@@ -7,14 +7,14 @@ class UtilityModel extends Model{
 
 
 //// ----------------------- ////
-	public static function getJsonData(){
-		$data = file_get_contents(JSON_DATA_PATH);
+	public static function getJsonDataUser(){
+		$data = file_get_contents(JSON_DATA_PATH_USER);
 		return json_decode($data, true);
 	}
 
-	public static function saveJsonData($data){
+	public static function saveJsonDataUser($data){
 		$newData = json_encode($data, JSON_PRETTY_PRINT);
-		file_put_contents(JSON_DATA_PATH, $newData);
+		file_put_contents(JSON_DATA_PATH_USER, $newData);
 	}
 
 	public static function getJsonCategory(){
