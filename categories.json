@@ -1,0 +1,22 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "name": "Western",
+            "description": "aaaaaaaaaaaaa",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/western.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Guerra",
+            "description": "Description",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/guerra.jpg"
+        },
+        {
+            "id": 3,
+            "name": "aaaaaaaaaa",
+            "description": "aaaaaaa",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/terror.jpg"
+        }
+    ]
+}
