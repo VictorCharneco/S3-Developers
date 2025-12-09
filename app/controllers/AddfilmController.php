@@ -23,7 +23,7 @@ class AddfilmController extends ApplicationController{
             }
             $newFilm = new Movie ($name, $description);
             if ($urlImage){
-                $newFilm -> urlImage = $urlImage;
+                $newFilm -> setUrlImage($urlImage);
             }
             $newFilm -> addMovie();
             header("Location: /listFilms");

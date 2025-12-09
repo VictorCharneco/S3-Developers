@@ -6,7 +6,7 @@ class Movie extends Model{
     private string $name;
     private int $year;
     private string $description;
-    public string $urlImage;
+    private string $urlImage;
 
 
     public function __construct($name, $description){
@@ -21,6 +21,10 @@ class Movie extends Model{
         $this->name = $name;
         $this->description = $description;
         $this->urlImage = "";
+    }
+
+    public function setUrlImage(string $urlImage):void{
+        $this->urlImage = $urlImage;
     }
 
     public static function getAllMovies():array{
@@ -44,6 +48,12 @@ class Movie extends Model{
         $data = UtilityModel::getFilmsData();
         foreach($data["movie"] as $index => $movie){
             if($movie["id"] === $id){
+                if(!empty($movie["urlImage"])){
+                    $imagePath = ltrim($movie["urlImage"], '/');
+                    if(file_exists($imagePath)){
+                        unlink($imagePath);
+                    }
+                }
                 array_splice($data["movie"], $index, 1);
                 break;
             }
