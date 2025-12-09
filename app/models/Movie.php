@@ -54,7 +54,7 @@ class Movie extends Model{
         foreach($data["movie"] as $index => $movie){
             if($movie["id"] === $id){
                 if(!empty($movie["urlImage"])){
-                    $imagePath = ltrim($movie["urlImage"], '/');
+                    $imagePath = ROOT_PATH . '/web/' . ltrim($movie["urlImage"], '/');
                     if(file_exists($imagePath)){
                         unlink($imagePath);
                     }
