@@ -1,13 +1,15 @@
 <?php
-
-class DeleteCateroryController extends ApplicationController{
+class DeleteCategoryController extends ApplicationController {
     
-    public function deleteCategoryAction(){
-        
-        $id = null;
-        
-        Category::deleteCat($id);
-    
+    public function deleteCategoryAction() {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            
+            Category::deleteCategory($id);
+            
+            // header('Location: /listCategories');
+            // exit();
+        }
     }
 }
 

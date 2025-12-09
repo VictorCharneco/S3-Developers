@@ -1,15 +1,22 @@
 <?php
 
-class CreateCategoryController extends ApplicationController{
+class CreateCategoryController extends ApplicationController {
 
     public function createCategoryAction() {
-    $nombre = "";
-    $descripcion = "";
+        if ($this->getRequest()->isPost()) {
+        $name = $_POST['name'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $urlCategoryImg = $_POST['urlCategoryImg'] ?? '';
+        
+    $categoria = new Category($name, $description, $urlCategoryImg);
+    $categoria->createCategory();
 
-    $categoria = new Category($nombre, $descripcion);
+    // echo "Categoría '{$name}' creada con ID: {$categoria->id}";
+    // print_r($categoria);
 
-    $categoria->createCat();
-    
+             header('Location: /listCategories');
+            exit();
+        }
     }
 }
 

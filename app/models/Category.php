@@ -1,69 +1,104 @@
 <?php
-
 class Category extends Model{
-
-    private $table = 'categorias';
     
     public $id;
-    public $nombre;
-    public $descripcion;
+    public $name;
+    public $description;
+    public $urlCategoryImg;
     
-    public function __construct($nombre, $descripcion) {
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
+    public function __construct($name, $description, $urlCategoryImg = "") {
+        $this->name = $name;
+        $this->description = $description;
+        $this->urlCategoryImg = $urlCategoryImg;
     }
 
-  // veure tot
-    public static function allCat(): array {
-        $data = UtilityModel::getJsonData();
-        return (isset($data["categoria"]) && $data["categoria"] !== null) ? $data["categoria"] : [];
-        // TERNARI - isset s'utilitza per comprobar si una variable està i no es nula.
-
+    public static function allCategory(): array {
+        $data = UtilityModel::getJsonCategory();
+        return $data["category"];
     }
 
- // nova
-    public function createCat(): void {
-        $data = UtilityModel::getJsonData();
+    public function createCategory(): void {
+        $uploadDir = 'images/categoryImg/';
+        $fileName = $_FILES['file']['name'];
+        move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $fileName);
+        $this->urlCategoryImg = '\/images\/categoryImg\/' . $fileName; 
         
-        // ternari nou ID
+        $data = UtilityModel::getJsonCategory();
+
         $this->id = empty($data["category"]) ? 1 : end($data["category"])["id"] + 1;
         
-        $data["categoria"][] = [
+        $data["category"][] = [
             'id' => $this->id,
-            'nombre' => $this->nombre,
-            'descripcion' => $this->descripcion
+            'name' => $this->name,
+            'description' => $this->description,
+            'urlCategoryImg' => $this->urlCategoryImg
         ];
         
-        UtilityModel::saveJsonData($data);
+        UtilityModel::saveJsonCategory($data);
     }
     
-    public function updateCat(): void {
-        $data = UtilityModel::getJsonData();
-        
-        foreach ($data["categoria"] as $categorias => $categoria) {
-            if ($categoria['id'] == $this->id) {
-                $data["categoria"][$categorias] = [
-                    'id' => $this->id,
-                    'nombre' => $this->nombre,
-                    'descripcion' => $this->descripcion
-                ];
+    public function updateCategory(int $id): void {
+        $data = UtilityModel::getJsonCategory();
+
+        $currentCategory = null;
+        foreach ($data["category"] as $category) {
+            if ($category['id'] == $id) {
+                $currentCategory = $category;
                 break;
             }
         }
-        
-        UtilityModel::saveJsonData($data);
-    }
-       
-    public static function deleteCat($id): void {
-        $data = UtilityModel::getJsonData();
-        foreach ($data["categoria"] as $categorias => $categoria) {
-            if ($categoria['id'] == $id) {
-                unset($data["categoria"][$categorias]); // unset, elimina un elemento de un array
-                $data["categoria"] = array_values($data["categoria"]);
-                UtilityModel::saveJsonData($data);
-                return;
+
+        if ($_FILES['file']['name']) {
+            $fileName = $_FILES['file']['name'];
+            move_uploaded_file($_FILES['file']['tmp_name'], 'images/categoryImg/' . $fileName);
+            $this->urlCategoryImg = '\/images\/categoryImg\/' . $fileName;
+        } else {
+            if (empty($this->urlCategoryImg) && $currentCategory) {
+            $this->urlCategoryImg = $currentCategory['urlCategoryImg'];
             }
         }
+
+        foreach ($data["category"] as $index => $category) {
+        if ($category['id'] == $id) {
+            $data["category"][$index]= [
+                'id' => $id,
+                "name" => $category["name"],
+                'description' => $this->description,
+                'urlCategoryImg' => $this->urlCategoryImg
+            ];
+            break;
+            }
+        }
+    
+        UtilityModel::saveJsonCategory($data);
+    }  
+
+    public static function deleteCategory(int $id): void {
+        $data = UtilityModel::getJsonCategory();
+        
+        foreach ($data["category"] as $position => $category) {
+            if ($category['id'] == $id) {
+                if (isset($category['urlCategoryImg']) && $category['urlCategoryImg'] !== '') {
+                    $imagePath = str_replace('\/', '/', $category['urlCategoryImg']);
+                    $imagePath = "." . $imagePath;
+                    if (file_exists($imagePath)) {
+                        unlink($imagePath);
+                    }
+                }
+                
+                unset($data["category"][$position]);
+                break;
+            }
+        }
+
+        $data["category"] = array_values($data["category"]);
+        
+        foreach ($data["category"] as $index => &$category) {
+            $category['id'] = $index + 1;
+        }
+        unset($category);
+        
+        UtilityModel::saveJsonCategory($data);
     }
 
 }

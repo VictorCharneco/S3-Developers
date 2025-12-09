@@ -1,0 +1,27 @@
+
+<style>
+    <?php include 'stylesheets/category.css'; ?>
+</style>
+
+<div class="options-btn">
+    <button><a href="<?= $this->baseUrl() ?>/createCategories">Create Categories</a></button>
+    <button><a href="<?= $this->baseUrl() ?>/updateCategories">Update Categories</a></button>
+    <button><a href="<?= $this->baseUrl() ?>/deleteCategories">Delete Categories</a></button>
+</div>
+
+<?php $categoryData = Category::allCategory(); ?>
+
+<div class="add-cat-container">
+    <h2>Delete category</h2>
+</div>
+
+<div class="list-films-container">
+    <?php foreach($categoryData as $category): ?>
+        <div class="movie-card">
+            <img src="<?= str_replace('\/', '/', $category['urlCategoryImg']); ?>" alt="<?= $category['name']; ?>">
+            <p><?= $category['name']; ?></p>
+            <p><?= $category['description']; ?></p>
+            <a href="<?= $this->baseUrl() ?>/deleteCategories?id=<?= $category['id']; ?>">Eliminar</a>
+        </div>
+    <?php endforeach; ?>
+</div>

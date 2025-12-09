@@ -1,0 +1,77 @@
+/* Contenedor estilo Apple */
+#card {
+    background: #ffffffcc;
+    backdrop-filter: blur(20px);
+    width: 320px;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 120px auto;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial, sans-serif;
+    color: #111;
+    border: 1px solid #e5e5e5;
+    box-shadow: 
+        0 15px 30px rgba(0,0,0,0.10),
+        0 5px 10px rgba(0,0,0,0.06);
+    text-align: left;
+
+    /* Aparición suave */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1s ease forwards;
+}
+
+#card h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Inputs estilo Apple */
+#card input[type="text"],
+#card input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    border: 1px solid #d1d1d6;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.2s ease;
+    background: #fafafa;
+}
+
+#card input:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 4px rgba(0,122,255,0.2);
+    outline: none;
+}
+
+/* Botón estilo Apple */
+#card .button {
+    width: 100%;
+    background: #007aff;
+    color: #fff;
+    padding: 13px 0;
+    font-size: 16px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,122,255,0.3);
+}
+
+#card .button:hover {
+    background: #0066d6;
+    box-shadow: 0 6px 16px rgba(0,122,255,0.35);
+    transform: translateY(-2px);
+}
+
+/* Animación */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
