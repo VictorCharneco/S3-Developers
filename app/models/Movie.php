@@ -32,6 +32,10 @@ class Movie extends Model{
         $this->urlImage = $urlImage;
     }
 
+    public function getId():int{
+        return $this -> id;
+    }   
+
     public static function getAllMovies():array{
         $data = UtilityModel::getFilmsData();
         $movieData = $data["movie"];
