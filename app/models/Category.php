@@ -20,13 +20,15 @@ class Category extends Model{
     public function createCategory(): void {
         $uploadDir = 'images/categoryImg/';
         $fileName = $_FILES['file']['name'];
-        move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $fileName);
-        $this->urlCategoryImg = '\/images\/categoryImg\/' . $fileName; 
         
         $data = UtilityModel::getJsonCategory();
 
         $this->id = empty($data["category"]) ? 1 : end($data["category"])["id"] + 1;
+        $newFileName = $this->id . '_' . $fileName;
         
+        move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $newFileName);
+        $this->urlCategoryImg = '\/images\/categoryImg\/' . $newFileName; 
+
         $data["category"][] = [
             'id' => $this->id,
             'name' => $this->name,
@@ -38,6 +40,9 @@ class Category extends Model{
     }
     
     public function updateCategory(int $id): void {
+        $this->id = $id;
+        $fileName = $_FILES['file']['name'];
+        
         $data = UtilityModel::getJsonCategory();
 
         $currentCategory = null;
@@ -48,10 +53,12 @@ class Category extends Model{
             }
         }
 
+        $UpdateFileName = $this->id . '_' . $fileName;
+
         if ($_FILES['file']['name']) {
             $fileName = $_FILES['file']['name'];
-            move_uploaded_file($_FILES['file']['tmp_name'], 'images/categoryImg/' . $fileName);
-            $this->urlCategoryImg = '\/images\/categoryImg\/' . $fileName;
+            move_uploaded_file($_FILES['file']['tmp_name'], 'images/categoryImg/' . $UpdateFileName);
+            $this->urlCategoryImg = '\/images\/categoryImg\/' . $UpdateFileName;
         } else {
             if (empty($this->urlCategoryImg) && $currentCategory) {
             $this->urlCategoryImg = $currentCategory['urlCategoryImg'];
