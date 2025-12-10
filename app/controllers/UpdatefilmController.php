@@ -16,10 +16,16 @@ class UpdatefilmController extends ApplicationController{
             
             foreach($data["movie"] as &$movie){
                 if($movie["id"] == $id){
-                    $movie["name"] = $name;
-                    $movie["description"] = $description;
-                    $movie["categories"] = [$categoryId];
-                    
+                    if(!empty($name)) {
+                        $movie["name"] = $name;
+                    }
+                    if(!empty($description)) {
+                        $movie["description"] = $description;
+                    }
+                    if(!empty($categoryId)) {
+                        $movie["categories"] = [$categoryId];
+                    }
+
                     if(!empty($_FILES["file"]["name"])){
                         $dire = "images/filmCovers/";
                         $fileName = basename($_FILES["file"]["name"]);

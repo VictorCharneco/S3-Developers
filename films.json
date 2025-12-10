@@ -4,7 +4,10 @@
             "id": 1,
             "name": "The Matrix",
             "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski.",
-            "urlImage": "\/images\/filmCovers\/TheMatrix.jpg"
+            "urlImage": "\/images\/filmCovers\/TheMatrix.jpg",
+            "categories": [
+                1
+            ]
         },
         {
             "id": 2,
