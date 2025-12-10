@@ -12,8 +12,11 @@
         {
             "id": 2,
             "name": "Interstellar",
-            "description": "Que Peliculon",
-            "urlImage": "\/images\/filmCovers\/Interstellar.jpg"
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n de Christopher Nolan",
+            "urlImage": "\/images\/filmCovers\/Interstellar.jpg",
+            "categories": [
+                1
+            ]
         },
         {
             "id": 3,

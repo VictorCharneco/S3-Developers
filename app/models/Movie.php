@@ -7,7 +7,7 @@ class Movie extends Model{
     private int $year;
     private string $description;
     private string $urlImage;
-    private array $categoryId = [];
+    private int $categoryId;
 
 
     public function __construct($name, $description){
@@ -25,7 +25,7 @@ class Movie extends Model{
     }
 
     public function setCategory(int $categoryId):void{
-        $this->categoryId[] = $categoryId;
+        $this->categoryId = $categoryId;
     }
 
     public function setUrlImage(string $urlImage):void{
@@ -89,7 +89,7 @@ class Movie extends Model{
                 if(!isset($movie["categories"])){
                     $movie["categories"] = [];
             }
-                $movie["categories"][] = $categoryId;
+                $movie["categories"] = $categoryId;
             }
         }
         UtilityModel::saveFilmData($data);
