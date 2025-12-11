@@ -12,29 +12,35 @@
 
 <div class="list-films-container">
 
-<?php foreach ($moviesData as $movie): ?>
+<?php foreach ($this -> moviesData as $movie): ?>
 
     <?php
-
         if (!empty($movie["urlImage"])) {
-            $imageFile = $movie["urlImage"];
-        } 
-
-        else {
-            $imageFile = strtolower($movie["name"]);
-            $imageFile = str_replace(" ", "", $imageFile);
-            $imageFile .= ".jpg";
+            $imagePath = $movie["urlImage"];
+        } else {
+            $imagePath = strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
         }
 
-        $imagePath = $imageFile;
+        $isBuyed = in_array($movie["id"], $this -> filmsBuyedByUser);
     ?>
 
     <div class="movie-card">
         <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
         <h3><?= $movie["name"] ?></h3>
         <p><?= $movie["description"] ?></p>
+
+        <?php if (!$isBuyed): ?>
+            <form action="<?= $this->baseUrl() ?>/buyFilm" method="POST">
+                <input type="hidden" name="filmId" value="<?= $movie['id'] ?>">
+                <button type="submit">Buy Film</button>
+            </form>        
+        <?php else: ?>
+            <button disabled>✔ Comprada</button>
+        <?php endif; ?>
+
     </div>
 
 <?php endforeach; ?>
+
 
 </div>

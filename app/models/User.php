@@ -6,6 +6,7 @@
         private $username;
         private $password;
         private $email;
+        private array $buyedFilms = [];
 
         private string $urlAvatar;
 
@@ -28,9 +29,12 @@
                 }
             }else {
                  foreach ($data["users"] as $user) {
-                    if ($username == $user["username"] && $password == $user["password"]) {
-                    $this->id = $user["id"];
-                    $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                    if ($user["id"] == $_SESSION["id"]) {
+                        $this->id = $user["id"];
+                        $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                        $this -> password = $user["password"];
+                        if (isset($user["films"])) 
+                             $this -> buyedFilms = $user["films"];
                     break;
             }
         }
@@ -40,6 +44,23 @@
     
 
     //GETTERS AND SETTERS
+        public function getBuyedFilms(){
+            return $this->buyedFilms;
+        }
+
+        public function buyFilm(int $id): void{
+            $userData = UtilityModel::getJsonDataUser();
+            foreach($userData["users"] as $key => $user) {
+                if($user["id"] == $_SESSION["id"]){
+                     if (!isset($userData["users"][$key]["films"])) 
+                        $userData["users"][$key]["films"] = [];
+                    
+                    $userData["users"][$key]["films"][] = $id;
+                    UtilityModel::saveJsonDataUser($userData);
+                }
+            }
+        }
+
         public function getId(){
             return $this->id;
         }

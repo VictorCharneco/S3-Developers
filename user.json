@@ -10,6 +10,28 @@
             "username": "lucas123",
             "password": "lucas123",
             "urlAvatar": "\/images\/userAvatars\/tenet.jpg"
+        },
+        {
+            "id": 3,
+            "username": "lxcxsito",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "films": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        {
+            "id": 4,
+            "username": "lxcxsito2",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/jjk.jpg",
+            "films": [
+                1
+            ]
         }
     ]
 }

@@ -19,6 +19,7 @@
         <li><a href="<?= $this->baseUrl() ?>/register">Register</a></li>
         <li><a href="<?= $this->baseUrl() ?>/login">Login</a></li>
     <?php else: ?>
+        <li><a href="<?= $this->baseUrl() ?>/library">Library</a></li>   
         <li><a href="<?= $this->baseUrl() ?>/logout">Logout</a></li>
         <?php if (!empty($_SESSION['urlAvatar'])): ?>
             <li>

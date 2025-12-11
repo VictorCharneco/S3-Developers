@@ -73,5 +73,21 @@ class Movie extends Model{
         UtilityModel::saveFilmData($data);
     }
 
+    public static function getFilmsById(array $idFilms): array{
+        if(!empty($idFilms)){
+            $films = [];
+            $filmsData = UtilityModel::getFilmsData();
+           for($i = 0; $i < sizeof($idFilms); $i++){
+                foreach($filmsData["movie"] as $film){
+                    if($film["id"] === $idFilms[$i]){
+                        $films[] = $film;                    
+                    }
+                }
+            }
+            return $films;
+        }
+        return[];
+    }
+
 }
 ?>
