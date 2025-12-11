@@ -77,6 +77,29 @@
             "name": "Indiana Jones y el Templo Perdido",
             "description": "Pel\u00edcula de Steven Spielberg",
             "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Tenet",
+            "description": "Pelicula de Christopher Nolan",
+            "categories": 2,
+            "urlImage": "\/images\/filmCovers\/13tenet.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Braveheart",
+            "description": "Pelicula de Mel Gibson",
+            "categories": [
+                1
+            ],
+            "urlImage": "\/images\/filmCovers\/braveheart.jpg"
+        },
+        {
+            "id": 15,
+            "name": "The Equalizer",
+            "description": "Pelicula de Antoine Fuqua",
+            "categories": 2,
+            "urlImage": "\/images\/filmCovers\/15TheEqualizer.jpeg"
         }
     ]
 }

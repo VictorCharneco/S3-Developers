@@ -42,6 +42,7 @@ class Movie extends Model{
         return $movieData;
     }
 
+    // This function add a new movie to films.json. If user sets an image, that will be saved too but its not mandtory.
     public function addMovie():void{
         $data = UtilityModel::getFilmsData();
         $newFilm = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description, "categories" => $this->categoryId];
@@ -53,6 +54,8 @@ class Movie extends Model{
         UtilityModel::saveFilmData($data);
     }
 
+    //This function looks for a movie by its ID at films.json and if it founds it, deletes it.
+    // in case the movie has an image, it erases too.
     public static function deleteMovie(int $id):void{
         $data = UtilityModel::getFilmsData();
         foreach($data["movie"] as $index => $movie){
@@ -70,6 +73,7 @@ class Movie extends Model{
         UtilityModel::saveFilmData($data);
     }
 
+    // this fnciont update the movie 
     public function updateMovie():void{
         $data = UtilityModel::getFilmsData();
         foreach($data["movie"] as &$movie){
@@ -82,7 +86,7 @@ class Movie extends Model{
         UtilityModel::saveFilmData($data);
     }
 
-    //añadir categorias a las peliculas
+    // This function search by ID the movie and once found it, adds a category to it.
     public function addCategoryToFilm(int $categoryId):void{
         if(!UtilityModel::getJsonCategory()){
             return;
@@ -90,9 +94,6 @@ class Movie extends Model{
         $data = UtilityModel::getFilmsData();
         foreach($data["movie"] as &$movie){
             if($movie["id"] === $this -> id){
-                if(!isset($movie["categories"])){
-                    $movie["categories"] = [];
-            }
                 $movie["categories"] = $categoryId;
             }
         }

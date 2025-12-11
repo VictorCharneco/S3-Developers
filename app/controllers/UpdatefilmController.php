@@ -4,6 +4,10 @@ class UpdatefilmController extends ApplicationController{
     public $moviesData;
     public $categoriesData;
 
+    // This function update the film by its ID. Fisrt it checks if its a POST request and then gets the data.
+    // It search the film by ID and update the data. If any imagen is included, it save it in the $dire folder.
+    // The others fields will be updated ONLY if are filled. In case there are blanked, will keep the previous data.
+    // Finally, it sends user to listFilms.
     public function updatefilmAction(){
          
         if($_SERVER["REQUEST_METHOD"] === "POST"){
