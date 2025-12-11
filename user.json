@@ -9,7 +9,10 @@
             "id": 2,
             "username": "lucas123",
             "password": "lucas123",
-            "urlAvatar": "\/images\/userAvatars\/tenet.jpg"
+            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "films": [
+                2
+            ]
         },
         {
             "id": 3,
@@ -30,7 +33,21 @@
             "password": "lucas123",
             "urlAvatar": "\/images\/userAvatars\/jjk.jpg",
             "films": [
-                1
+                1,
+                13,
+                3,
+                4,
+                7,
+                6
+            ]
+        },
+        {
+            "id": 5,
+            "username": "lucas3",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/avatar-empty.png",
+            "films": [
+                2
             ]
         }
     ]

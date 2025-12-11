@@ -71,6 +71,12 @@
             "name": "Indiana Jones y el Templo Perdido",
             "description": "Pel\u00edcula de Steven Spielberg",
             "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Jujutsu Kaisen Execution",
+            "description": "patata",
+            "urlImage": "\/images\/filmCovers\/jjk.jpg"
         }
     ]
 }

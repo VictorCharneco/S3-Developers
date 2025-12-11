@@ -1,6 +1,6 @@
 <?php
 
-    class User extends Model{
+class User extends Model{
 
         private $id;
         private $username;
@@ -10,38 +10,51 @@
 
         private string $urlAvatar;
 
-      public function __construct($username, $password, $isNew = true) {
-            $this->username = $username;
-            $this->password = $password;
+public function __construct($username, $password, $isNew = true) {
+    $this->username = $username;
+    $this->password = $password;
 
-            $data = UtilityModel::getJsonDataUser();
+    $data = UtilityModel::getJsonDataUser();
 
-            if ($isNew) {
-                foreach($data["users"] as $user) {
-                    if ($username == $user["username"]) {
-                        return;
-                    }
-                }
-                 if(!empty($data["users"])){ 
-                    $lastUser = end($data["users"]); $this->id = $lastUser["id"] + 1; 
-                }else { 
-                    $this->id = 1;
-                }
-            }else {
-                 foreach ($data["users"] as $user) {
-                    if ($user["id"] == $_SESSION["id"]) {
-                        $this->id = $user["id"];
-                        $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
-                        $this -> password = $user["password"];
-                        if (isset($user["films"])) 
-                             $this -> buyedFilms = $user["films"];
-                    break;
+    if ($isNew) {
+        foreach($data["users"] as $user) {
+            if ($username == $user["username"]) {
+                return;
             }
         }
+        if (!empty($data["users"])) {
+            $lastUser = end($data["users"]);
+            $this->id = $lastUser["id"] + 1;
+        } else {
+            $this->id = 1;
+        }
+    } else {
+        if (isset($_SESSION["id"])) 
+            $loggedId = $_SESSION["id"];
+        else 
+            $loggedId = null;
+                
+        foreach ($data["users"] as $user) {
 
+            if ($loggedId && $user["id"] == $loggedId) {
+                $this->id = $user["id"];
+                $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                $this->password = $user["password"];
+                $this->buyedFilms = $user["films"] ?? [];
+                break;
             }
+
+            if (!$loggedId && $username == $user["username"] && $password == $user["password"]) {
+                $this->id = $user["id"];
+                $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                $this->password = $user["password"];
+                $this->buyedFilms = $user["films"] ?? [];
+                break;
+            }
+        }
     }
-    
+}
+
 
     //GETTERS AND SETTERS
         public function getBuyedFilms(){
