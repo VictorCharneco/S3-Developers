@@ -34,24 +34,6 @@
             "urlImage": "\/images\/filmCovers\/TheGodfather.jpg"
         },
         {
-            "id": 6,
-            "name": "Pulp Fiction",
-            "description": "Pel\u00edcula de crimen y drama dirigida por Quentin Tarantino.",
-            "urlImage": "\/images\/filmCovers\/PulpFiction.jpg"
-        },
-        {
-            "id": 7,
-            "name": "The Dark Knight",
-            "description": "Pel\u00edcula de superh\u00e9roes dirigida por Christopher Nolan.",
-            "urlImage": "\/images\/filmCovers\/TheDarkKnight.jpg"
-        },
-        {
-            "id": 8,
-            "name": "Forrest Gump",
-            "description": "Pel\u00edcula dram\u00e1tica y comedia dirigida por Robert Zemeckis.",
-            "urlImage": "\/images\/filmCovers\/ForrestGump.jpg"
-        },
-        {
             "id": 9,
             "name": "The Shawshank Redemption",
             "description": "Pel\u00edcula dram\u00e1tica dirigida por Frank Darabont.",

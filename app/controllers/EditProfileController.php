@@ -29,14 +29,13 @@ class EditProfileController extends ApplicationController {
 
             if(!$emptyUsername){
                 if (!FormValidations::validateUsername($username)) {
-                    $this->usernamevalidationError = "Invalid username format.";
+                    $this->usernamevalidationError =  "Username must be 3–20 characters long and may only contain letters, numbers, and underscores.";
                 }
             }
-            // Validaciones
 
             if(!$emptyPassword){
                 if (!FormValidations::validatePassword($password)) {
-                    $this->passwordvalidationError = "Invalid password format.";
+                $this->passwordvalidationError = "Password must be at least 8 characters long and include at least one letter and one number.";
                 }
             }
 

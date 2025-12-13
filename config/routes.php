@@ -19,9 +19,11 @@ $routes = array(
 	'/addFilm' => 'addFilm#addFilm',
     '/deleteFilm' => 'deleteFilm#deleteFilm',
 	'/updateFilm' => 'updateFilm#updateFilm',
+	'/buyFilm' => 'buyFilm#buyFilm',
 	'/listCategories' => 'listCategory#listCategory',
 	'/createCategories' => 'createCategory#createCategory',
 	'/updateCategories' => 'updateCategory#updateCategory',
 	'/deleteCategories' => 'deleteCategory#deleteCategory',
-	'/edit_profile' => 'editProfile#editProfile'
+	'/edit_profile' => 'editProfile#editProfile',
+	'/library' => 'library#library',
 );

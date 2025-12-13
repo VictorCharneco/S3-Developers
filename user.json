@@ -9,13 +9,57 @@
             "id": 2,
             "username": "lucas123",
             "password": "lucas123",
-            "urlAvatar": "\/images\/userAvatars\/tenet.jpg"
+            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "films": [
+                2
+            ]
         },
         {
             "id": 3,
-            "username": "VictorC",
-            "password": "victor123",
-            "urlAvatar": "\/images\/userAvatars\/Captura de pantalla 2025-12-09 a las 12.23.30.png"
+            "username": "lxcxsito",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "films": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        {
+            "id": 4,
+            "username": "lxcxsito2",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/jjk.jpg",
+            "films": [
+                1,
+                13,
+                3,
+                4,
+                7,
+                6
+            ]
+        },
+        {
+            "id": 5,
+            "username": "lucas3",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/momo.jpg",
+            "films": [
+                2,
+                3,
+                13
+            ]
+        },
+        {
+            "id": 6,
+            "username": "lucssss",
+            "password": "kefnefnfe2",
+            "urlAvatar": "\/images\/userAvatars\/avatar-empty.png",
+            "films": [
+                   
+            ]
         }
     ]
 }
