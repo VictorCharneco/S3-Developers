@@ -19,11 +19,14 @@ class AddfilmController extends ApplicationController{
             $name = $_POST["name"];
             $description = $_POST["description"];
             $urlImage = null;
-        
             $newFilm = new Movie ($name, $description);
 
             $categoryId = (int)$_POST["categories"];
             $newFilm -> setCategory($categoryId);
+            $urlVideo = $_POST["trailer"];
+            parse_str(parse_url($urlVideo, PHP_URL_QUERY), $query);
+            $videoId = $query['v'] ?? null;
+            $embedUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&loop=1&playlist=$videoId";
 
             if(!empty($_FILES["file"]["name"])){
                 $dire = "images/filmCovers/";
@@ -35,9 +38,11 @@ class AddfilmController extends ApplicationController{
                 }
             }
 
-            if ($urlImage){
+            if ($urlImage)
                 $newFilm -> setUrlImage($urlImage);
-            }
+            if($embedUrl)
+                $newFilm -> setTrailerUrl($embedUrl);
+
 
             $newFilm -> addMovie();
 

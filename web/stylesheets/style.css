@@ -1,0 +1,485 @@
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY Y LAYOUT */
+body {
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","SF Pro Text",Arial,sans-serif;
+  background: linear-gradient(135deg,#ffe8c7,#ffd0f0); 
+  color: #4a301b; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+/* FORMULARIOS (Add / Category) */
+/* .add-film-container { */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  justify-items: center;
+  width: 400px;
+  margin: 5px auto;
+  padding: 10px;
+  background: linear-gradient(135deg,#ffe8c7,#ffe5d5);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  box-shadow: 0 18px 14px rgba(0,0,0,0.12),
+              0 6px 14px rgba(0,0,0,0.08);
+}
+
+/*.list-films-container { */
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  justify-items: center;
+}
+
+/*.add-film-container h2,
+.add-Cat-container h2 { */
+.container h2 {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #5a3c24;
+}
+
+/*.add-film-container label { */
+.container label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+  margin-bottom: 5px;
+  color: #4a301b;
+}
+
+/* .add-film-container input,
+.add-film-container input[type="file"],
+.add-film-container select { */
+.container input, 
+.container input[type="file"],
+.container select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,155,80,0.6);
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.9);
+}
+
+/* .add-film-container input[type="file"]::file-selector-button { */
+.container input[type="file"]::file-selector-button {
+  padding: 12px;
+  border-radius: 999px;
+  background: #ffd46b;
+  color: #3c2714;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/*.add-film-container button { */
+.list-container button,
+.container button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: #ffd46b;
+  color: #3c2714;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* .add-film-container button:hover { */
+.list-container button:hover,
+.container button:hover {
+  background: #ffbf3e;
+}
+
+/* HEADER, MENÚ Y SUBMENÚ */
+/* Marco global del encabezado */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.nav-shell {
+  width: 100%;
+  max-width: 1100px;
+  padding: 14px 22px 18px;
+  border-radius: 30px;
+  border: 3px solid rgba(190,120,60,0.7); 
+  background: radial-gradient(circle at top,
+              rgba(255,255,255,0.95) 0%,
+              rgba(255,248,236,0.92) 45%,
+              rgba(255,230,230,0.9) 100%);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+  backdrop-filter: blur(18px);
+}
+
+/* barra principal del menú */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu a,
+.menu label {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 2px solid rgba(230,160,80,0.95);
+  color: #5a3c24;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.10);
+  transition: all .25s ease;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu label:hover {
+  background: #fffbf5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.14);
+}
+
+/* submenú horizontal enmarcado */
+.subbar {
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px 10px 10px;
+  border-radius: 22px;
+  border: 2px dashed rgba(190,120,60,0.6);
+  background: linear-gradient(135deg,#fff7e5,#ffeaf2);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.8);
+}
+
+.submenu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.submenu a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(210,140,70,0.9);
+  background: rgba(255,255,255,0.95);
+  color: #5a3c24;
+  font-size: .9rem;
+  text-decoration: none;
+  transition: background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+
+.submenu a:hover {
+  background: #ffd46b;
+  color: #3c2714;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* checkboxes ocultos para abrir submenús con clic */
+input[type="checkbox"].toggle-sub {
+  display: none;
+}
+
+#films-toggle.toggle-sub:checked ~ .subbar .submenu-films,
+#categories-toggle.toggle-sub:checked ~ .subbar .submenu-categories {
+  display: flex;
+}
+
+#films-toggle.toggle-sub:checked + label,
+#categories-toggle.toggle-sub:checked + label {
+  background: #ffd46b;
+  color: #3c2714;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+/* HOME (títulos, grid) */
+.logo-animation {
+  width: 80px;
+  height: 80px;
+  margin: 40px auto 20px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 40px solid #ffd46b;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.25));
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a3c24;
+  text-shadow: 0 0 8px rgba(90,60,36,0.35);
+  text-align: center;
+}
+
+p {
+  opacity: 0.9;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #5b4a40;
+  text-align: center;
+}
+
+/* grid de pósters */
+/* .movie-grid { */
+.grid {  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* .movie-grid .movie-card { */
+.grid .card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: float-card 6s ease-in-out infinite;
+}
+
+/* .movie-grid .movie-card img { */
+.grid .card img {
+  width: 95%;
+  height: 95%;
+  border-radius: 18px;
+  display: block;
+  transition: transform 0.4s ease;
+  filter: brightness(0.9);
+}
+
+/* .movie-grid .movie-card:hover { */
+.grid .card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 20px rgba(190,120,60,0.45);
+}
+
+/* .movie-grid .movie-card:hover img { */
+.grid .card:hover img {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
+/* BOTONES DE OPCIONES / LISTADOS */
+.options-btn {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #5a3c24;
+  transition: color 0.3s ease;
+}
+
+.options-btn button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease,color 0.3s ease;
+}
+
+.options-btn button:hover {
+  color: #3c2714;
+  background-color: #fffbf5;
+}
+
+/* LISTA DE PELÍCULAS (cards) */
+.movie-card {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px);
+  width: 260px;
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,155,80,0.45);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.12),
+              0 6px 14px rgba(0,0,0,0.08);
+  color: #4a301b;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.movie-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5a3c24;
+}
+
+.movie-card a {
+  font-size: 16px;
+  color: #5b4a40;
+  line-height: 1.4;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.movie-card p {
+  font-size: 14px;
+  color: #5b4a40;
+  line-height: 1.4;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 40px rgba(0,0,0,0.16),
+              0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* CARD LOGIN / REGISTER (#card) */
+#card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  width: 320px;
+  padding: 30px;
+  border-radius: 22px;
+  margin: 120px auto;
+  color: #4a301b;
+  border: 1px solid rgba(255,155,80,0.45);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.12),
+              0 6px 14px rgba(0,0,0,0.08);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease forwards;
+}
+
+#card h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #5a3c24;
+}
+
+#card input[type="text"],
+#card input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,155,80,0.6);
+  border-radius: 999px;
+  font-size: 15px;
+  transition: 0.2s ease;
+  background: #fffbf5;
+}
+
+#card input:focus {
+  border-color: #ffd46b;
+  box-shadow: 0 0 0 4px rgba(255,212,107,0.35);
+  outline: none;
+}
+
+#card .button {
+  width: 100%;
+  background: #ffd46b;
+  color: #3c2714;
+  padding: 13px 0;
+  font-size: 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+#card .button:hover {
+  background: #ffbf3e;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  transform: translateY(-2px);
+}
+
+/* FOOTER UNIFICADO */
+footer {
+  margin-top: 24px;
+  padding: 14px 20px;
+  text-align: center;
+  background: linear-gradient(135deg,#ffe3d0,#ffd8f0);
+  border-top: 2px solid rgba(190,120,60,0.6);
+  color: #5a3c24;
+  font-size: 0.9rem;
+  box-shadow: 0 -8px 18px rgba(0,0,0,0.08);
+}
+
+/* ANIMACIONES */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-card {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}

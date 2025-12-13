@@ -12,13 +12,48 @@
 
 <?php foreach ($this->moviesData as $movie): ?>
 
+    <?php
+        $imagePath = !empty($movie["urlImage"])
+            ? $movie["urlImage"]
+            : strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
+
+        $isBuyed = in_array($movie["id"], $this->filmsBuyedByUser);
+    ?>
+
     <div class="movie-card">
-        <img src="<?= $movie["imagePath"] ?>" alt="<?= $movie["name"] ?>">
+
+        <div class="image-container">
+            <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
+
+            <?php if (!empty($movie["trailer"])): ?>
+                <div class="trailer-overlay">
+                    <iframe
+                        src="<?= $movie["trailer"] ?>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            <?php endif; ?>
+        </div>
+
         <h3><?= $movie["name"] ?></h3>
         <p class="description"><?= $movie["description"] ?></p>
         <p class="category"><?= $movie["categoryName"] ?></p>
+
+        <?php if (!$isBuyed): ?>
+            <form action="<?= $this->baseUrl() ?>/buyFilm" method="POST">
+                <input type="hidden" name="filmId" value="<?= $movie['id'] ?>">
+                <button type="submit">Buy Film</button>
+            </form>
+        <?php else: ?>
+            <button disabled>✔ Comprada</button>
+        <?php endif; ?>
+
     </div>
 
 <?php endforeach; ?>
 
 </div>
+
+

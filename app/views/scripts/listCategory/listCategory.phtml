@@ -1,21 +1,21 @@
 
 <style>
-    <?php include 'stylesheets/category.css'; ?>
+    <?php include 'stylesheets/style.css';?>
 </style>
 
-<div class="options-btn">
-    <button><a href="<?= $this->baseUrl() ?>/createCategories">Create Categories</a></button>
-    <button><a href="<?= $this->baseUrl() ?>/updateCategories">Update Categories</a></button>
-    <button><a href="<?= $this->baseUrl() ?>/deleteCategories">Delete Categories</a></button>
+<div class="submenu">
+    <a href="<?= $this->baseUrl() ?>/createCategories">Create Category</a>
+    <a href="<?= $this->baseUrl() ?>/updateCategories">Update Category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories">Delete Category</a>
 </div>
 
 <?php $categoryData = Category::allCategory()?>
 
-<div class="add-cat-container">
-    <h2>List of Categories</h2>
+<div class="container">
+    <h2>List Categories</h2>
 </div>
 
-<div class="list-films-container">
+<div class="list-container">
     <?php foreach($categoryData as $category): ?>
         <div class="movie-card">
             <p value="<?= $category['id']; ?>">
@@ -23,7 +23,7 @@
                     alt="<?= $category['name']; ?>" 
                     style="width: 100%; height: auto;">
             </p>
-            <p value="<?= $category['id']; ?>"><?= $category['name']; ?></p>
+            <h3 value="<?= $category['id']; ?>"><?= $category['name']; ?></h3>
             <p value="<?= $category['id']; ?>"><?= $category['description']; ?></p>
         </div>
     <?php endforeach; ?>

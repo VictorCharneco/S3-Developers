@@ -1,30 +1,28 @@
 
 <style>
-    <?php include 'stylesheets/category.css'; ?>
+    <?php include 'stylesheets/style.css'; ?>
 </style>
 
-<div class="options-btn">
-    <button><a href="<?= $this->baseUrl() ?>/createCategories">Create Categories</a></button>
-    <button><a href="<?= $this->baseUrl() ?>/updateCategories">Update Categories</a></button>
-    <button><a href="<?= $this->baseUrl() ?>/deleteCategories">Delete Categories</a></button>
+<div class="submenu">
+    <a href="<?= $this->baseUrl() ?>/createCategories">Create category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories">Delete category</a>
 </div>
 
-<div class="add-film-container">
+<div class="container">
     <h2>Update category</h2>
     <form method="post" action="<?= $this->baseUrl() ?>/updateCategories" enctype="multipart/form-data">
-        <label>Name</label>
+        <label for="name">Name</label>
         <select name="id">
             <?php foreach ($this -> data["category"] as $cat): ?> 
                 <option  value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
             <?php endforeach; ?>
         </select>
         
-        <label>Description</label>
+        <label for="description">Description</label>
         <input type="text" id="description" name="description" required>
-        <!-- <textarea type="text" id="description" name="description" rows="3" cols="43" required></textarea><br><br> -->
         
-        <label>Image file</label>
-        <input type="file" name="file" accept="image/*">
+        <label for="file">Image file</label>
+        <input type="file" id="file" name="file" accept="image/*">
         <input type="hidden" name="urlCategoryImg" value="<?= $this->category['urlCategoryImg'] ?? '' ?>">
 
         <button type="submit" class="button">Update</button>
