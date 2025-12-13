@@ -1,102 +1,107 @@
-.options-btn{
+
+.options-btn {
     display: flex;
     gap: 15px;
     justify-content: center;
     margin: 20px 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #555;
-    transition: color 0.3s ease;
-}
-.options-btn button:hover {
-    color: #000;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-}
-.options-btn button {
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-/* Contenedor de todas las películas */
+.options-btn button {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
 .list-films-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     padding: 40px;
     justify-items: center;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial, sans-serif;
 }
 
-/* CARD estilo Apple / Glassmorphism */
 .movie-card {
-    background: #ffffffcc;
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     width: 260px;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid #e5e5e5;
-    box-shadow:
-        0 15px 30px rgba(0,0,0,0.10),
-        0 5px 10px rgba(0,0,0,0.06);
-    color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    color: #f1f5f9;
     text-align: center;
 
-    /* Animación de aparición */
     opacity: 0;
-    transform: translateY(40px) scale(1); /* 👈 combina translate + scale */
+    transform: translateY(40px);
     animation: fadeUp 0.8s ease forwards;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.movie-card:hover {
-    cursor: grab;
-    transform: translateY(-6px) scale(1.08); /* 👈 ahora sí se nota el hover */
-    box-shadow:
-        0 32px 60px rgba(0,0,0,0.16),
-        0 20px 40px rgba(0,0,0,0.12);
-    border-color: #d0d0d0;
-    background: #ffffffee;
+.movie-card:hover{
+    cursor: pointer;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 32px 60px rgba(0,0,0,0.25);
+    background: rgba(255, 255, 255, 0.12);
 }
 
+.options-btn button i{
+    margin-right: 10px;
+}
 
+.options-btn button:hover {
+    cursor: pointer;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 32px 60px rgba(0,0,0,0.25);
+    background: rgba(255, 255, 255, 0.12);
+}
 
-/* Imagen dentro de la card */
+.options-btn button:hover i{
+    transform: scale(1.3);
+    color:rgba(12, 236, 172, 0.616);
+}
+
 .movie-card img {
     width: 100%;
     height: 360px;
     object-fit: cover;
     border-radius: 14px;
     margin-bottom: 15px;
+    transition: transform 0.4s ease;
 }
 
-/* Título de la película */
+.movie-card:hover img {
+    transform: scale(1.08);
+}
+
 .movie-card h3 {
     margin: 10px 0;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
+    color: #f1f5f9;
+    text-transform: uppercase;
 }
 
-/* Descripción */
 .movie-card p {
     font-size: 14px;
-    color: #444;
+    color: #cbd5e1;
     line-height: 1.4;
 }
 
-/* Animación */
 @keyframes fadeUp {
     to {
         opacity: 1;
-        transform: translateY(0) scale(1); /* 👈 mantiene scale(1) */
+        transform: translateY(0);
     }
 }
 .image-container {

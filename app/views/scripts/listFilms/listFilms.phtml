@@ -1,17 +1,22 @@
-<?php $moviesData = Movie::getAllMovies(); ?>
-
 <style>
     <?php include 'stylesheets/listFilms.css'; ?>
 </style>
 
 <div class="options-btn">
-    <button onclick="location.href='/addFilm'"> ➕ Añadir Pelicula</button>
-    <button onclick="location.href='/updateFilm'">✏️ Modificar Pelicula</button>
-    <button onclick="location.href='/deleteFilm'">❌ Eliminar Pelicula</button>
+    <button onclick="location.href='/addFilm'"><i class="fa-solid fa-square-plus fa-lg"></i> Añadir Pelicula</button>
+    <button onclick="location.href='/updateFilm'"><i class="fa-solid fa-wrench fa-lg"></i> Modificar Pelicula</button>
+    <button onclick="location.href='/deleteFilm'"><i class="fa-solid fa-trash-can fa-lg"></i> Eliminar Pelicula</button>
 </div>
 
 <div class="list-films-container">
 
+<?php foreach ($this->moviesData as $movie): ?>
+
+    <div class="movie-card">
+        <img src="<?= $movie["imagePath"] ?>" alt="<?= $movie["name"] ?>">
+        <h3><?= $movie["name"] ?></h3>
+        <p class="description"><?= $movie["description"] ?></p>
+        <p class="category"><?= $movie["categoryName"] ?></p>
 <?php foreach ($this -> moviesData as $movie): ?>
 
     <?php

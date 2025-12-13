@@ -1,6 +1,33 @@
 {
     "movie": [
         {
+            "id": 1,
+            "name": "The Matrix",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski.",
+            "urlImage": "\/images\/filmCovers\/TheMatrix.jpg",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Interstellar",
+            "description": "Que Peliculon",
+            "urlImage": "\/images\/filmCovers\/Interstellar.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Avatar",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Avatar.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Titanic",
+            "description": "Pel\u00edcula dram\u00e1tica y rom\u00e1ntica dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Titanic.jpg"
+        },
+        {
             "id": 5,
             "name": "The Godfather",
             "description": "Pel\u00edcula de crimen y drama dirigida por Francis Ford Coppola.",
@@ -16,7 +43,10 @@
             "id": 10,
             "name": "Gladiator",
             "description": "Pel\u00edcula \u00e9pica y dram\u00e1tica dirigida por Ridley Scott.",
-            "urlImage": "\/images\/filmCovers\/Gladiator.jpg"
+            "urlImage": "\/images\/filmCovers\/Gladiator.jpg",
+            "categories": [
+                1
+            ]
         },
         {
             "id": 11,
@@ -25,18 +55,33 @@
             "urlImage": "\/images\/filmCovers\/JurassicPark.jpg"
         },
         {
-            "id": 13,
-            "name": "Jujutsu Kaisen Execution",
-            "description": "patata",
-            "urlImage": "\/images\/filmCovers\/jjk.jpg",
-            "trailer": "https:\/\/www.youtube.com\/watch?v=fYL0ni7N4bw"
+            "id": 12,
+            "name": "Indiana Jones y el Templo Perdido",
+            "description": "Pel\u00edcula de Steven Spielberg",
+            "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg"
         },
         {
-            "id": 16,
-            "name": "Chiringuito",
-            "description": "ejnejfn",
-            "urlImage": "\/images\/filmCovers\/jjk.jpg",
-            "trailer": "https:\/\/www.youtube.com\/embed\/aLVvhZME8Yk?autoplay=1&mute=1&loop=1&playlist=aLVvhZME8Yk"
+            "id": 13,
+            "name": "Tenet",
+            "description": "Pelicula de Christopher Nolan",
+            "categories": 2,
+            "urlImage": "\/images\/filmCovers\/13tenet.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Braveheart",
+            "description": "Pelicula de Mel Gibson",
+            "categories": [
+                1
+            ],
+            "urlImage": "\/images\/filmCovers\/braveheart.jpg"
+        },
+        {
+            "id": 15,
+            "name": "The Equalizer",
+            "description": "Pelicula de Antoine Fuqua",
+            "categories": 2,
+            "urlImage": "\/images\/filmCovers\/15TheEqualizer.jpeg"
         }
     ]
 }

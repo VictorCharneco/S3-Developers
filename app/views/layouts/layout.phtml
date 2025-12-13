@@ -7,20 +7,21 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <header>
 	<nav>
 <ul>
-    <li><a href="<?= $this->baseUrl() ?>/home">Home</a></li>
-    <li><a href="<?= $this->baseUrl() ?>/listFilms">List Films</a></li>
-		<li><a href="<?= $this->baseUrl() ?>/listCategories">List Categories</a></li>
+    <li><a href="<?= $this->baseUrl() ?>/home"><i class="fa-solid fa-house fa-2x"></i> Home</a></li>
+    <li><a href="<?= $this->baseUrl() ?>/listFilms"><i class="fa-solid fa-video fa-2x"></i> List Films</a></li>
+		<li><a href="<?= $this->baseUrl() ?>/listCategories"><i class="fa-solid fa-film fa-2x"></i> List Categories</a></li>
 
     <?php if (empty($_SESSION['isLoggedIn'])): ?>
-        <li><a href="<?= $this->baseUrl() ?>/register">Register</a></li>
-        <li><a href="<?= $this->baseUrl() ?>/login">Login</a></li>
+        <li><a href="<?= $this->baseUrl() ?>/register"><i class="fa-solid fa-id-card fa-2x"></i> Register</a></li>
+        <li><a href="<?= $this->baseUrl() ?>/login"><i class="fa-solid fa-users fa-2x"></i> Login</a></li>
     <?php else: ?>
         <li><a href="<?= $this->baseUrl() ?>/library">Library</a></li>   
-        <li><a href="<?= $this->baseUrl() ?>/logout">Logout</a></li>
+        <li><a href="<?= $this->baseUrl() ?>/logout"><i class="fa-solid fa-users-slash fa-2x"></i>Logout</a></li>
         <?php if (!empty($_SESSION['urlAvatar'])): ?>
             <li>
                 <a href="<?= $this->baseUrl() ?>/edit_profile">
