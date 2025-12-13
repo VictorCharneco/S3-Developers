@@ -2,27 +2,93 @@
     "category": [
         {
             "id": 1,
-            "name": "Western",
-            "description": "aaaaaaaaaaaaa",
-            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/western.jpg"
+            "name": "Action",
+            "description": "Features intense scenes, chases, fights, and dangerous situations, focusing on heroes who face extreme challenges to save lives or achieve goals, keeping the viewer constantly on edge.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2e61a7b5e_1_action.jpg"
         },
         {
             "id": 2,
-            "name": "Guerra",
-            "description": "Description",
-            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/guerra.jpg"
+            "name": "Film Noir",
+            "description": "Stories of crime and moral ambiguity, a dark aesthetic with strong lighting contrasts, and tragic or bittersweet endings, reflecting the corruption and pessimism of the society in which they are set.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2ed06aad1_2_filmNoir.jpg"
         },
         {
             "id": 3,
-            "name": "aaaaaaaaaa",
-            "description": "aaaaaaa",
-            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/terror.jpg"
+            "name": "Fantasy",
+            "description": "Presents unreal, magical, or supernatural elements, far from reality, with stories that often include mythical creatures, imaginary worlds, or inexplicable phenomena, and aims to transport the viewer to alternative realities.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2ef5d7572_3_fantasy.jpg"
         },
         {
             "id": 4,
-            "name": "jjjjj",
-            "description": "jjbhbh",
-            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/oppenheimer.jpg"
+            "name": "Drama",
+            "description": "Focused on human and emotional conflicts, with serious stories that explore the human condition, moral dilemmas, and complex relationships, aiming to evoke an emotional response in the viewer.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2f12a12a0_4_drama.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Musical",
+            "description": "Integration of songs, dances, and storytelling, where musical passages advance the plot and express the characters' emotions.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2f32e7e0c_5_musical.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Suspense",
+            "description": "Keeps the audience in suspense and anticipation, using intriguing plots, characters in danger, and unexpected twists to generate a constant sense of mystery and suspense.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2f51637d3_6_suspense.jpg"
+        },
+        {
+            "id": 7,
+            "name": "War",
+            "description": "Shows realistic conflicts, focusing on battles, soldiers, and the impact of war, immersing the viewer in its harsh realities and emotional struggles.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2f7ab5acf_7_war.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Adventure",
+            "description": "Presents exciting journeys, exploration of unknown places, and daring challenges, often involving heroes who face risks and discover new worlds, captivating the viewer with suspense and wonder.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2f9835b99_8_adventure.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Animation",
+            "description": "Creates moving images through a sequence of drawings, models, or digital resources, allowing great creative freedom to represent worlds, characters, and situations beyond reality.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2fc10277d_9_animation.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Science Fiction",
+            "description": "Explores futuristic worlds, technological advances, space travel, and extraterrestrial beings, using imaginative elements to reflect on the future, society, and human nature.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b2ff3b7c1d_10_scienceFiction.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Comedy",
+            "description": "Provokes laughter and entertainment, using absurd situations, physical humor, witty dialogue, and caricatured characters, with a light approach and usually a happy ending.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b302b26f0d_11_comedy.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Western",
+            "description": "Set in the American West of the 19th century, centered on characters like cowboys and gunslingers who face conflicts between civilization and the wild frontier, with stories of morality, duels, and adventures in desert landscapes and frontier towns.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b30587abb0_12_western.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Romantic",
+            "description": "Stories of love and relationships, exploring the emotional connection between characters and presenting obstacles they must overcome to achieve romantic happiness.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b308a0b747_13_romantic.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Terror",
+            "description": "Seeks to provoke fear, tension, or distress in the audience, using supernatural plots, monsters, killers, or terrifying situations to generate an intense emotional response.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b30a2e4fa5_14_terror.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Historical",
+            "description": "Recreates events, characters, and periods from the past, using setting, costumes, and narrative to represent historical facts or relevant figures, often with an educational or interpretive approach.",
+            "urlCategoryImg": "\\\/images\\\/categoryImg\\\/693b30b8df823_15_historical.jpg"
         }
     ]
 }
