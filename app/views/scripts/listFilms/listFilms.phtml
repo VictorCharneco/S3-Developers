@@ -1,40 +1,65 @@
-<?php $moviesData = Movie::getAllMovies(); ?>
-
 <style>
     <?php include 'stylesheets/listFilms.css'; ?>
 </style>
 
 <div class="options-btn">
-    <button onclick="location.href='/addFilm'"> ➕ Añadir Pelicula</button>
-    <button onclick="location.href='/updateFilm'">✏️ Modificar Pelicula</button>
-    <button onclick="location.href='/deleteFilm'">❌ Eliminar Pelicula</button>
+    <button onclick="location.href='/addFilm'"><i class="fa-solid fa-square-plus fa-lg"></i> Añadir Pelicula</button>
+    <button onclick="location.href='/updateFilm'"><i class="fa-solid fa-wrench fa-lg"></i> Modificar Pelicula</button>
+    <button onclick="location.href='/deleteFilm'"><i class="fa-solid fa-trash-can fa-lg"></i> Eliminar Pelicula</button>
 </div>
 
 <div class="list-films-container">
 
-<?php foreach ($moviesData as $movie): ?>
+<?php foreach ($this->moviesData as $movie): ?>
+
+    <div class="movie-card">
+        <img src="<?= $movie["imagePath"] ?>" alt="<?= $movie["name"] ?>">
+        <h3><?= $movie["name"] ?></h3>
+        <p class="description"><?= $movie["description"] ?></p>
+        <p class="category"><?= $movie["categoryName"] ?></p>
+<?php foreach ($this -> moviesData as $movie): ?>
 
     <?php
-
         if (!empty($movie["urlImage"])) {
-            $imageFile = $movie["urlImage"];
-        } 
-
-        else {
-            $imageFile = strtolower($movie["name"]);
-            $imageFile = str_replace(" ", "", $imageFile);
-            $imageFile .= ".jpg";
+            $imagePath = $movie["urlImage"];
+        } else {
+            $imagePath = strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
         }
 
-        $imagePath = $imageFile;
+        $isBuyed = in_array($movie["id"], $this -> filmsBuyedByUser);
     ?>
 
     <div class="movie-card">
-        <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
+        <div class="image-container">
+            <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
+        <div class="trailer-overlay">
+            <iframe src="<?= $movie["trailer"] ?>" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen 
+                    >
+            </iframe>        
+        </div>
+    </div>
         <h3><?= $movie["name"] ?></h3>
+         <div class="trailer-overlay">
+        </div>
         <p><?= $movie["description"] ?></p>
+
+        <?php if (!$isBuyed): ?>
+            <form action="<?= $this->baseUrl() ?>/buyFilm" method="POST">
+                <input type="hidden" name="filmId" value="<?= $movie['id'] ?>">
+                <button type="submit">Buy Film</button>
+            </form>        
+        <?php else: ?>
+            <button disabled>✔ Comprada</button>
+        <?php endif; ?>
+
     </div>
 
 <?php endforeach; ?>
 
+
 </div>
+
+

@@ -17,10 +17,9 @@ class LoginController extends ApplicationController{
             $password = $this->_getParam("password");
             //we have to validate the user
             $user = new User($username, $password,false);
-            if($user->loginUser()){
+            if($user->loginUser($username , $password)){
                     //User is valid, we start the session
                 $_SESSION["username"] = $username;
-                $_SESSION["password"] = $password;
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["urlAvatar"] = $user -> getUrlAvatar();
                 $_SESSION["id"] = $user -> getId();
