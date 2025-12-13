@@ -4,7 +4,12 @@ class ListfilmsController extends ApplicationController{
 
     public $moviesData;
 
-    // This function gets all movies and each category by its ID. If a movie hasn't got category, shows "Sin Categorizar".
+    /**
+     * listFilmsAction
+     * This function gets all movis and each category by its ID. If a movie hasn't got category,
+     * will be shows "sin Categoría".
+     * @return void
+     */
     public function listFilmsAction(){
         $moviesData = (Movie::getAllMovies());
         $categoryData = UtilityModel::getJsonCategory()["category"];
