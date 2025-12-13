@@ -28,11 +28,20 @@ class Category extends Model{
         $this->urlCategoryImg = $urlCategoryImg;
     }
 
+    /**
+    * Get all categories.
+    * @return array what containing the categories.
+    */
     public static function allCategory(): array {
         $data = UtilityModel::getJsonCategory();
         return $data["category"];
     }
 
+    /**
+    * Create a new category and save it in the JSON file.
+    * Upload an image associated with the category, generate a unique ID (uniqid()). Save data in the JSON file.
+    * @return void Returns NO value.
+    */
     public function createCategory(): void {
         $uploadDir = 'images/categoryImg/';
         $fileName = $_FILES['file']['name'];
@@ -57,7 +66,15 @@ class Category extends Model{
 
         UtilityModel::saveJsonCategory($data);
     }
+
     
+    /**
+    * Updates an existing category and its associated image.
+    * Search for the category by its ID, upload a new image if provided, delete the previous one,
+    * and update the data in the JSON file. If no image is uploaded, keep the existing one.
+    * @param int $id ID of the category to be updated.
+    * @return void Returns NO value.
+    */
     public function updateCategory(int $id): void {
         $this->setId($id);
         $fileName = $_FILES['file']['name'];
@@ -104,6 +121,13 @@ class Category extends Model{
         UtilityModel::saveJsonCategory($data);
     }  
 
+    /**
+    * Deletes a category by its ID, description, and associated image.
+    * Search category in the JSON file, delete the description and physical image if exists,
+    * delete category record and rearrange the IDs again.
+    * @param int $id ID of the category to be deleted.
+    * @return void Returns NO value.
+    */
     public static function deleteCategory(int $id): void {
         $data = UtilityModel::getJsonCategory();
         

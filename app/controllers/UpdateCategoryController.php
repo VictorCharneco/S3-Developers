@@ -1,7 +1,18 @@
 <?php
+/**
+ * Controlador para actualizar una categoría existente.
+ * Este controlador maneja la lógica de obtener, ordenar y actualizar una categoría.
+ * También prepara los datos para mostrar en la vista.
+ */
 class UpdateCategoryController extends ApplicationController {
     private $data;
-    
+    /**
+     * Acción para actualizar una categoría.
+     * Obtiene las categorías desde el modelo, las ordena por nombre y procesa el formulario de actualización.
+     * Si la solicitud es POST, busca la categoría por ID, actualiza sus datos y redirige.
+     * Si no, prepara los datos para mostrar en la vista.
+     * @return void No devuelve ningún valor.
+     */ 
     public function UpdateCategoryAction(): void {
         $this -> data = UtilityModel::getJsonCategory(); 
 
