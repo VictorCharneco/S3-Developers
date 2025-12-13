@@ -8,6 +8,8 @@ class Movie extends Model{
     private string $description;
     private string $urlImage;
 
+    private string $trailerUrl;
+
 
     public function __construct($name, $description){
         $data = UtilityModel::getFilmsData();
@@ -21,6 +23,7 @@ class Movie extends Model{
         $this->name = $name;
         $this->description = $description;
         $this->urlImage = "";
+        $this->trailerUrl = "";
     }
 
     public function setUrlImage(string $urlImage):void{
@@ -36,16 +39,19 @@ class Movie extends Model{
     public function addMovie():void{
         $data = UtilityModel::getFilmsData();
         $newFilm = ["id" => $this -> id, "name" => $this -> name , "description" => $this -> description];
-
         if ($this-> urlImage){
             $newFilm["urlImage"] = $this -> urlImage;
         }
+        if($this->trailerUrl)
+            $newFilm["trailer"] = $this -> trailerUrl;
+
         $data["movie"][] = $newFilm;
         UtilityModel::saveFilmData($data);
     }
 
     public static function deleteMovie(int $id):void{
         $data = UtilityModel::getFilmsData();
+        $usersData = UtilityModel::getJsonDataUser();
         foreach($data["movie"] as $index => $movie){
             if($movie["id"] === $id){
                 if(!empty($movie["urlImage"])){
@@ -54,10 +60,24 @@ class Movie extends Model{
                         unlink($imagePath);
                     }
                 }
+               foreach ($usersData["users"] as $userIndex => $user) {
+
+                    if (isset($user["films"]) && !empty($user["films"])) {  
+                        foreach ($user["films"] as $filmIndex => $filmId) {
+
+                            if ($filmId === $id) {
+                                unset($usersData["users"][$userIndex]["films"][$filmIndex]);
+                            }
+                        }
+
+                            $usersData["users"][$userIndex]["films"] = array_values($usersData["users"][$userIndex]["films"]);
+                    }
+                }
                 array_splice($data["movie"], $index, 1);
                 break;
             }
         }
+        UtilityModel::saveJsonDataUser($usersData);
         UtilityModel::saveFilmData($data);
     }
 
@@ -71,6 +91,26 @@ class Movie extends Model{
             }
         }
         UtilityModel::saveFilmData($data);
+    }
+
+    public static function getFilmsById(array $idFilms): array{
+        if(!empty($idFilms)){
+            $films = [];
+            $filmsData = UtilityModel::getFilmsData();
+           for($i = 0; $i < sizeof($idFilms); $i++){
+                foreach($filmsData["movie"] as $film){
+                    if($film["id"] === $idFilms[$i]){
+                        $films[] = $film;                    
+                    }
+                }
+            }
+            return $films;
+        }
+        return[];
+    }
+
+    public function setTrailerUrl(string $url){
+        $this -> trailerUrl = $url;
     }
 
 }

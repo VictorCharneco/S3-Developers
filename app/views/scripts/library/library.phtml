@@ -1,0 +1,31 @@
+<style>
+    <?php include 'stylesheets/listFilms.css'; ?>
+</style>
+
+<?php if ($this->emptyFilms): ?>
+    <div class="no-films">
+        <h2>No hay películas compradas</h2>
+        <p>Parece que tu colección está vacía. ¡Explora nuestro catálogo y añade tus favoritas!</p>
+        <a href="/listFilms" class="btn-explore">Ver catálogo</a>
+    </div>
+<?php else: ?>
+    <div class="list-films-container">
+        <?php foreach ($this->myFilms as $movie): ?>
+            <?php
+                if (!empty($movie["urlImage"])) {
+                    $imageFile = $movie["urlImage"];
+                } else {
+                    $imageFile = strtolower($movie["name"]);
+                    $imageFile = str_replace(" ", "", $imageFile);
+                    $imageFile .= ".jpg";
+                }
+                $imagePath = $imageFile;
+            ?>
+            <div class="movie-card">
+                <img src="<?= $imagePath ?>" alt="<?= htmlspecialchars($movie["name"]) ?>">
+                <h3><?= htmlspecialchars($movie["name"]) ?></h3>
+                <p><?= htmlspecialchars($movie["description"]) ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

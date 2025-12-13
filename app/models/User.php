@@ -1,45 +1,78 @@
 <?php
 
-    class User extends Model{
+class User extends Model{
 
         private $id;
         private $username;
         private $password;
         private $email;
+        private array $buyedFilms = [];
 
         private string $urlAvatar;
 
-      public function __construct($username, $password, $isNew = true) {
-            $this->username = $username;
-            $this->password = $password;
+public function __construct($username, $isNew = true) {
+    $this->username = $username;
 
-            $data = UtilityModel::getJsonDataUser();
+    $data = UtilityModel::getJsonDataUser();
 
-            if ($isNew) {
-                foreach($data["users"] as $user) {
-                    if ($username == $user["username"]) {
-                        return;
-                    }
+    if ($isNew) {
+        foreach($data["users"] as $user) {
+            if ($username == $user["username"]) {
+                return;
+            }
+        }
+        if (!empty($data["users"])) {
+            $lastUser = end($data["users"]);
+            $this->id = $lastUser["id"] + 1;
+        } else {
+            $this->id = 1;
+        }
+    } else {
+        if (isset($_SESSION["id"])) 
+            $loggedId = $_SESSION["id"];
+        else 
+            $loggedId = null;
+                
+        foreach ($data["users"] as $user) {
+
+            if ($loggedId && $user["id"] == $loggedId) {
+                $this->id = $user["id"];
+                $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                $this->password = $user["password"];
+                $this->buyedFilms = $user["films"] ?? [];
+                break;
+            }
+
+            if (!$loggedId && $username == $user["username"]) {
+                $this->id = $user["id"];
+                $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
+                $this->password = $user["password"];
+                $this->buyedFilms = $user["films"] ?? [];
+                break;
+            }
+        }
+    }
+}
+
+
+    //GETTERS AND SETTERS
+        public function getBuyedFilms(){
+            return $this->buyedFilms;
+        }
+
+        public function buyFilm(int $id): void{
+            $userData = UtilityModel::getJsonDataUser();
+            foreach($userData["users"] as $key => $user) {
+                if($user["id"] == $_SESSION["id"]){
+                     if (!isset($userData["users"][$key]["films"])) 
+                        $userData["users"][$key]["films"] = [];
+                    
+                    $userData["users"][$key]["films"][] = $id;
+                    UtilityModel::saveJsonDataUser($userData);
                 }
-                 if(!empty($data["users"])){ 
-                    $lastUser = end($data["users"]); $this->id = $lastUser["id"] + 1; 
-                }else { 
-                    $this->id = 1;
-                }
-            }else {
-                 foreach ($data["users"] as $user) {
-                    if ($username == $user["username"] && $password == $user["password"]) {
-                    $this->id = $user["id"];
-                    $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
-                    break;
             }
         }
 
-            }
-    }
-    
-
-    //GETTERS AND SETTERS
         public function getId(){
             return $this->id;
         }
@@ -80,23 +113,23 @@
     //LOGIC FUNCTIONS
     //THIS FUNCTIONS ARE CALLED FROM CONTROLLERS !!!
     //CONTROLLERS VALIDATES INPUT DATA BEFORE CALLING THESE FUNCTIONS !!!
-    public function registerUser(){
+    public function registerUser(string $password){
         $userExists = false;
         //First we need to get json data
         $data = UtilityModel::getJsonDataUser();
             $this -> urlAvatar = EMPTY_AVATAR_PATH;
-            $data["users"][] = ["id" => $this -> id , "username" => $this -> username, "password" => $this -> password, "urlAvatar" => $this -> urlAvatar];
+            $data["users"][] = ["id" => $this -> id , "username" => $this -> username, "password" => $password, "urlAvatar" => $this -> urlAvatar];
             UtilityModel::saveJsonDataUser($data);
             return true;
         
     }
 
-    public function loginUser(){
+    public function loginUser(string $username, string $password){
         //First we need to get json data
         $data = UtilityModel::getJsonDataUser();
         //Check if username && password are the same
         foreach($data["users"] as $user){
-            if($user["username"] == $this -> username && $user["password"] == $this -> password){
+            if($user["username"] == $username && $user["password"] == $password){
                 //User exists and I return true (Controller will create and start the session)
                 $this -> urlAvatar = $user["urlAvatar"];
                 return true;
