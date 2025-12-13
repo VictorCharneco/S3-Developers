@@ -25,8 +25,20 @@
     ?>
 
     <div class="movie-card">
-        <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
+        <div class="image-container">
+            <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
+        <div class="trailer-overlay">
+            <iframe src="<?= $movie["trailer"] ?>" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen 
+                    >
+            </iframe>        
+        </div>
+    </div>
         <h3><?= $movie["name"] ?></h3>
+         <div class="trailer-overlay">
+        </div>
         <p><?= $movie["description"] ?></p>
 
         <?php if (!$isBuyed): ?>
@@ -44,3 +56,5 @@
 
 
 </div>
+
+

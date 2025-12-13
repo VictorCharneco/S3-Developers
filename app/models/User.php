@@ -10,9 +10,8 @@ class User extends Model{
 
         private string $urlAvatar;
 
-public function __construct($username, $password, $isNew = true) {
+public function __construct($username, $isNew = true) {
     $this->username = $username;
-    $this->password = $password;
 
     $data = UtilityModel::getJsonDataUser();
 
@@ -44,7 +43,7 @@ public function __construct($username, $password, $isNew = true) {
                 break;
             }
 
-            if (!$loggedId && $username == $user["username"] && $password == $user["password"]) {
+            if (!$loggedId && $username == $user["username"]) {
                 $this->id = $user["id"];
                 $this->urlAvatar = $user["urlAvatar"] ?? "images/userAvatars/avatar-empty.png";
                 $this->password = $user["password"];
@@ -114,23 +113,23 @@ public function __construct($username, $password, $isNew = true) {
     //LOGIC FUNCTIONS
     //THIS FUNCTIONS ARE CALLED FROM CONTROLLERS !!!
     //CONTROLLERS VALIDATES INPUT DATA BEFORE CALLING THESE FUNCTIONS !!!
-    public function registerUser(){
+    public function registerUser(string $password){
         $userExists = false;
         //First we need to get json data
         $data = UtilityModel::getJsonDataUser();
             $this -> urlAvatar = EMPTY_AVATAR_PATH;
-            $data["users"][] = ["id" => $this -> id , "username" => $this -> username, "password" => $this -> password, "urlAvatar" => $this -> urlAvatar];
+            $data["users"][] = ["id" => $this -> id , "username" => $this -> username, "password" => $password, "urlAvatar" => $this -> urlAvatar];
             UtilityModel::saveJsonDataUser($data);
             return true;
         
     }
 
-    public function loginUser(){
+    public function loginUser(string $username, string $password){
         //First we need to get json data
         $data = UtilityModel::getJsonDataUser();
         //Check if username && password are the same
         foreach($data["users"] as $user){
-            if($user["username"] == $this -> username && $user["password"] == $this -> password){
+            if($user["username"] == $username && $user["password"] == $password){
                 //User exists and I return true (Controller will create and start the session)
                 $this -> urlAvatar = $user["urlAvatar"];
                 return true;

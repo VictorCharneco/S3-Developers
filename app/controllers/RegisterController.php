@@ -30,10 +30,9 @@ class RegisterController extends ApplicationController {
                 $user = new User($username, $password, true);
 
                 if (!$user->checkIfUsernameExists($username)) {
-                    if ($user->registerUser()) {
+                    if ($user->registerUser($password)) {
                         $_SESSION["username"]   = $username;
                         $_SESSION["id"]         = $user->getId();
-                        $_SESSION["password"]   = $password;
                         $_SESSION["isLoggedIn"] = true;
                         $_SESSION["urlAvatar"]  = $user->getUrlAvatar();
 

@@ -8,7 +8,7 @@ class LibraryController extends ApplicationController{
 
     private array $buyedFilms = [];
     public function libraryAction(){
-        $user = new User($_SESSION["username"],["password"],false); 
+        $user = new User($_SESSION["username"],false); 
         $filmsBuyed = $user -> getBuyedFilms();
         if(empty( $filmsBuyed ))
             $this -> emptyFilms = true;

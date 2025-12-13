@@ -10,11 +10,10 @@ class ListfilmsController extends ApplicationController{
 
     public function listFilmsAction(){
          $this->moviesData = Movie::getAllMovies();
-        $user = new User ($_SESSION["username"],$_SESSION["password"],false);
+        $user = new User ($_SESSION["username"],false);
         $this -> filmsBuyedByUser = $user->getBuyedFilms();
         $this->view->moviesData = $this->moviesData;
         $this->view->filmsBuyedByUser = $this->filmsBuyedByUser;
-        
     }
 
     
