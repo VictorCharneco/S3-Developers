@@ -12,45 +12,40 @@
 
 <?php foreach ($this->moviesData as $movie): ?>
 
-    <div class="movie-card">
-        <img src="<?= $movie["imagePath"] ?>" alt="<?= $movie["name"] ?>">
-        <h3><?= $movie["name"] ?></h3>
-        <p class="description"><?= $movie["description"] ?></p>
-        <p class="category"><?= $movie["categoryName"] ?></p>
-<?php foreach ($this -> moviesData as $movie): ?>
-
     <?php
-        if (!empty($movie["urlImage"])) {
-            $imagePath = $movie["urlImage"];
-        } else {
-            $imagePath = strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
-        }
+        $imagePath = !empty($movie["urlImage"])
+            ? $movie["urlImage"]
+            : strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
 
-        $isBuyed = in_array($movie["id"], $this -> filmsBuyedByUser);
+        $isBuyed = in_array($movie["id"], $this->filmsBuyedByUser);
     ?>
 
     <div class="movie-card">
+
         <div class="image-container">
             <img src="<?= $imagePath ?>" alt="<?= $movie["name"] ?>">
-        <div class="trailer-overlay">
-            <iframe src="<?= $movie["trailer"] ?>" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen 
-                    >
-            </iframe>        
+
+            <?php if (!empty($movie["trailer"])): ?>
+                <div class="trailer-overlay">
+                    <iframe
+                        src="<?= $movie["trailer"] ?>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            <?php endif; ?>
         </div>
-    </div>
+
         <h3><?= $movie["name"] ?></h3>
-         <div class="trailer-overlay">
-        </div>
-        <p><?= $movie["description"] ?></p>
+        <p class="description"><?= $movie["description"] ?></p>
+        <p class="category"><?= $movie["categoryName"] ?></p>
 
         <?php if (!$isBuyed): ?>
             <form action="<?= $this->baseUrl() ?>/buyFilm" method="POST">
                 <input type="hidden" name="filmId" value="<?= $movie['id'] ?>">
                 <button type="submit">Buy Film</button>
-            </form>        
+            </form>
         <?php else: ?>
             <button disabled>✔ Comprada</button>
         <?php endif; ?>
@@ -58,7 +53,6 @@
     </div>
 
 <?php endforeach; ?>
-
 
 </div>
 

@@ -19,6 +19,7 @@ class AddfilmController extends ApplicationController{
             $name = $_POST["name"];
             $description = $_POST["description"];
             $urlImage = null;
+            $newFilm = new Movie ($name, $description);
 
             $categoryId = (int)$_POST["categories"];
             $newFilm -> setCategory($categoryId);
@@ -37,7 +38,6 @@ class AddfilmController extends ApplicationController{
                 }
             }
 
-            $newFilm = new Movie ($name, $description);
             if ($urlImage)
                 $newFilm -> setUrlImage($urlImage);
             if($embedUrl)

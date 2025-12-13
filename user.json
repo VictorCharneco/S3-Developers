@@ -57,8 +57,15 @@
             "username": "lucssss",
             "password": "kefnefnfe2",
             "urlAvatar": "\/images\/userAvatars\/avatar-empty.png",
+            "films": []
+        },
+        {
+            "id": 7,
+            "username": "lucassss123",
+            "password": "lucas2233",
+            "urlAvatar": "\/images\/userAvatars\/avatar-empty.png",
             "films": [
-                   
+                17
             ]
         }
     ]
