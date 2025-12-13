@@ -88,16 +88,21 @@
             "name": "kenjfenjen",
             "description": "kefnejnfejn",
             "categories": 1,
-            "urlImage": "\/images\/filmCovers\/16oppenheimer.jpg",
-            "trailer": "https:\/\/www.youtube.com\/embed\/xdi68YYUrlo?autoplay=1&mute=0&loop=1&playlist=xdi68YYUrlo"
+            "urlImage": "\/images\/filmCovers\/16oppenheimer.jpg"
         },
         {
             "id": 17,
             "name": "alpha",
             "description": "kdmwjdnwjb",
             "categories": 13,
-            "urlImage": "\/images\/filmCovers\/17tenet.jpg",
-            "trailer": "https:\/\/www.youtube.com\/embed\/jGecuMlXRCU?autoplay=1&mute=0&loop=1&playlist=jGecuMlXRCU"
+            "urlImage": "\/images\/filmCovers\/17tenet.jpg"
+        },
+        {
+            "id": 18,
+            "name": "prueba",
+            "description": "agga",
+            "categories": 9,
+            "urlImage": "\/images\/filmCovers\/18fren\u0303o.JPEG"
         }
     ]
 }
