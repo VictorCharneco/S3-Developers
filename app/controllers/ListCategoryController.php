@@ -1,16 +1,16 @@
-
 <?php
 
 /**
- * Controlador para listar todas las categorías.
- * Este controlador maneja la lógica de obtener y mostrar todas las categorías disponibles.
- */
+* Controller for listing all categories.
+* This controller handles the logic of obtaining and displaying all available categories.
+*/
 class ListCategoryController extends ApplicationController{
+
     /**
-     * Acción para listar todas las categorías.
-     * Obtiene todas las categorías desde el modelo Category y las almacena en una variable.
-     * Puede utilizarse para mostrar la lista en una vista.
-     * @return void No devuelve ningún valor explícito, pero almacena los datos para la vista.
+    * Action to list all categories.
+    * Gets all categories from the Category model and stores them in a variable.
+    * Can be used to display the list in a view.
+    * @return void Does not return any explicit value, but stores the data for the view.
      */
     public function listCategoryAction(){
     $name = "";
@@ -18,12 +18,8 @@ class ListCategoryController extends ApplicationController{
     $urlCoverImagen = "";
     
     $category = Category::allCategory();
-    // print_r($category);
     
-
     }
-
 }
-
 
 ?>
