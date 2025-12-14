@@ -1,35 +1,75 @@
 
+.list-card h3 {
+    display: grid;
+    justify-content: center;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    width: 96%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    color: #f1f5f9;
+    text-align: center;
+}
 
 
+/* Inputs y selectores */
+.add-film-container input,
+.add-film-container select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #f1f5f9;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
 
+.add-film-container input:focus,
+.add-film-container select:focus {
+    border-color: rgba(12, 236, 172, 0.616);
+    background: rgba(255, 255, 255, 0.12);
+    outline: none;
+}
 
+/* Botón */
+.add-film-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
+.add-film-container button:hover {
+    background: rgba(25, 90, 193, 0.12);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    color: rgba(12, 236, 172, 0.9);
+}
 
+.add-film-container input[type="file"]::file-selector-button {
+    background: rgba(255, 255, 255, 0.15); /* aquí cambias el fondo */
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.add-film-container input[type="file"]::file-selector-button:hover {
+    background: rgba(12, 236, 172, 0.3); /* fondo distinto al pasar el ratón */
+    transform: scale(1.05);
+    color: #0cecac;
+}

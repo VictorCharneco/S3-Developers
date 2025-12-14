@@ -6,6 +6,7 @@
     margin: 20px 0;
 }
 
+.options-btn a,
 .options-btn button {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(8px);
@@ -55,10 +56,12 @@
     background: rgba(255, 255, 255, 0.12);
 }
 
+.options-btn a i,
 .options-btn button i{
     margin-right: 10px;
 }
 
+.options-btn a:hover,
 .options-btn button:hover {
     cursor: pointer;
     transform: translateY(-6px) scale(1.05);
@@ -66,6 +69,7 @@
     background: rgba(255, 255, 255, 0.12);
 }
 
+.options-btn a:hover i,
 .options-btn button:hover i{
     transform: scale(1.3);
     color:rgba(12, 236, 172, 0.616);
