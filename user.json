@@ -1,0 +1,13 @@
+{
+    "users": [
+        {
+            "id": 2,
+            "username": "lucas123",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "films": [
+                2
+            ]
+        }
+    ]
+}

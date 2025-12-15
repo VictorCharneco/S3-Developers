@@ -1,0 +1,19 @@
+<?php $moviesData = Movie::getAllMovies()?>
+<style>
+    <?php include 'stylesheets/addFilm.css';?>
+</style>
+
+<div class="add-film-container">
+    <h2>Eliminar películas</h2>
+    <form action="/deleteFilm" method="post">
+        <label for="film" name="film">¿Qué película quieres borrar?</label>
+        <select id="film" name="film" required>
+            <?php foreach ($moviesData as $movie): ?>
+                <option value =" <?php echo $movie['id']; ?> ">
+                                 <?php echo $movie['name']; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit">Eliminar</button>
+    </form>
+</div>

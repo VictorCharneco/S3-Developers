@@ -1,0 +1,36 @@
+
+<style>
+    <?php include 'stylesheets/listFilms.css';?>
+    <?php include 'stylesheets/category.css';?>
+</style>
+
+<div class="list-card">
+    <h3>Delete category</h3>
+</div>
+
+<div class="list-card">
+<?php if (isset($_SESSION['message'])) {
+    echo '<p>' . htmlspecialchars($_SESSION['message']) . '</p>';
+    unset($_SESSION['message']);
+} ?>
+</div>
+
+<div class="options-btn">
+    <a href="<?= $this->baseUrl() ?>/createCategories"><i class="fa-solid fa-square-plus fa-lg"></i> Create Category</a>
+    <a href="<?= $this->baseUrl() ?>/updateCategories"><i class="fa-solid fa-wrench fa-lg"></i> Update Category</a>
+</div>
+
+<?php $categoryData = Category::allCategory(); ?>
+
+<div class="list-films-container">
+    <?php foreach($categoryData as $category): ?>
+        <div class="movie-card">
+            <img src="<?= str_replace('\/', '/', $category['urlCategoryImg']); ?>" alt="<?= $category['name']; ?>">
+            <h3><?= $category['name']; ?></h3>
+            <div class="add-film-container">
+                <button><a href="<?= $this->baseUrl() ?>/deleteCategories?id=<?= $category['id']; ?>">Delete</a></button>
+            </div>
+            <p><?= $category['description']; ?></p>
+        </div>
+        <?php endforeach; ?>
+</div>

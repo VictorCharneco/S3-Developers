@@ -1,0 +1,52 @@
+<?php
+
+/**
+* Controller for updating an existing category.
+* This controller handles the logic for retrieving, sorting, and updating a category.
+* It also prepares the data for display in the view.
+*/
+class UpdateCategoryController extends ApplicationController {
+    private $data;
+    
+    /**
+    * Action to update a category.
+    * Gets the categories from the model, sorts them by name, and processes the update form.
+    * If the request is POST, it searches for the category by ID, updates its data, and redirects.
+    * Otherwise, it prepares the data to display in the view.
+    * @return void Does not return any value.
+    */ 
+    public function UpdateCategoryAction(): void {
+        $this -> data = UtilityModel::getJsonCategory(); 
+
+        $sortCategoryName = array_column($this->data["category"], 'name');
+        array_multisort($sortCategoryName, SORT_ASC, $this->data["category"]);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = (int) ($_POST['id'] ?? '');
+                        
+            foreach ($this->data["category"] as $cat) {
+                if ($cat['id'] == $id) {
+                    $name = $_POST['name'] ?? '';
+                    $description = $_POST['description'] ?? '';
+                    $urlCategoryImg = $_POST['urlCategoryImg'] ?? '';
+
+                    $name = (string) $name;
+                    $description = (string) $description;
+                    $urlCategoryImg = (string) $urlCategoryImg;
+
+                    $category = new Category($name, $description, $urlCategoryImg);
+                    $category->updateCategory($id);
+
+                    header('Location: /listCategories');
+                    return;
+                }
+            }
+            
+        } else {
+            $this -> view -> data = $this -> data; 
+
+        }
+    }
+}
+
+?>

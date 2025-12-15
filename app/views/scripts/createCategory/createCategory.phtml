@@ -1,0 +1,26 @@
+
+<style>
+    <?php include 'stylesheets/listFilms.css';?>
+    <?php include 'stylesheets/addfilm.css'; ?>
+</style>
+
+<div class="options-btn">
+    <a href="<?= $this->baseUrl() ?>/updateCategories"><i class="fa-solid fa-wrench fa-lg"></i> Update Category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories"><i class="fa-solid fa-trash-can fa-lg"></i> Delete Category</a>
+</div>
+
+<div class="add-film-container">
+    <h2>Create Category</h2>
+    <form method="post" action="<?= $this->baseUrl() ?>/createCategories" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" required>
+        
+        <label for="file">Image file</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+    
+        <button type="submit" class="button">Create</button>
+    </form>
+</div>

@@ -1,0 +1,124 @@
+{
+    "movie": [
+        {
+            "id": 1,
+            "name": "The Matrix",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por los hermanos Wachowski.",
+            "urlImage": "\/images\/filmCovers\/TheMatrix.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/vKQi3bBA1y8?autoplay=1&mute=1&loop=1&playlist=vKQi3bBA1y8"
+        },
+        {
+            "id": 2,
+            "name": "Interstellar",
+            "description": "Que Peliculon",
+            "urlImage": "\/images\/filmCovers\/Interstellar.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/UoSSbmD9vqc?autoplay=1&mute=1&loop=1&playlist=UoSSbmD9vqc"
+        },
+        {
+            "id": 3,
+            "name": "Avatar",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Avatar.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/5PSNL1qE6VY?autoplay=1&mute=1&loop=1&playlist=5PSNL1qE6VY"
+        },
+        {
+            "id": 4,
+            "name": "Titanic",
+            "description": "Pel\u00edcula dram\u00e1tica y rom\u00e1ntica dirigida por James Cameron.",
+            "urlImage": "\/images\/filmCovers\/Titanic.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/kVrqfYjkTdQ?autoplay=1&mute=1&loop=1&playlist=kVrqfYjkTdQ"
+        },
+        {
+            "id": 5,
+            "name": "The Godfather",
+            "description": "Pel\u00edcula de crimen y drama dirigida por Francis Ford Coppola.",
+            "urlImage": "\/images\/filmCovers\/TheGodfather.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/UaVTIH8mujA?autoplay=1&mute=1&loop=1&playlist=UaVTIH8mujA"
+        },
+        {
+            "id": 9,
+            "name": "The Shawshank Redemption",
+            "description": "Pel\u00edcula dram\u00e1tica dirigida por Frank Darabont.",
+            "urlImage": "\/images\/filmCovers\/TheShawshankRedemption.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/PLl99DlL6b4?autoplay=1&mute=1&loop=1&playlist=PLl99DlL6b4"
+        },
+        {
+            "id": 10,
+            "name": "Gladiator",
+            "description": "Pel\u00edcula \u00e9pica y dram\u00e1tica dirigida por Ridley Scott.",
+            "urlImage": "\/images\/filmCovers\/Gladiator.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/P5ieIbInFpg?autoplay=1&mute=1&loop=1&playlist=P5ieIbInFpg"
+        },
+        {
+            "id": 11,
+            "name": "Jurassic Park",
+            "description": "Pel\u00edcula de ciencia ficci\u00f3n y aventura dirigida por Steven Spielberg.",
+            "urlImage": "\/images\/filmCovers\/JurassicPark.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/bx46tthKXmc?autoplay=1&mute=1&loop=1&playlist=bx46tthKXmc"
+        },
+        {
+            "id": 12,
+            "name": "Indiana Jones y el Templo Perdido",
+            "description": "Pel\u00edcula de Steven Spielberg",
+            "urlImage": "\/images\/filmCovers\/IndianaJonestempleofdoom.jpg",
+            "categories": [
+                1
+            ],
+            "trailer": "https:\/\/www.youtube.com\/embed\/WBdyLyijZhU?autoplay=1&mute=1&loop=1&playlist=WBdyLyijZhU"
+        },
+        {
+            "id": 13,
+            "name": "Tenet",
+            "description": "Pelicula de Christopher Nolan",
+            "categories": [
+                1
+            ],
+            "urlImage": "\/images\/filmCovers\/13tenet.jpg",
+            "trailer": "https:\/\/www.youtube.com\/embed\/LdOM0x0XDMo?autoplay=1&mute=1&loop=1&playlist=LdOM0x0XDMo"
+        },
+        {
+            "id": 14,
+            "name": "Braveheart",
+            "description": "Pelicula de Mel Gibson",
+            "categories": [
+                1
+            ],
+            "urlImage": "\/images\/filmCovers\/braveheart.jpg",
+            "trailer": "https:\/\/www.youtube.com\/embed\/sDjFWzPjXbg?autoplay=1&mute=1&loop=1&playlist=sDjFWzPjXbg"
+        },
+        {
+            "id": 15,
+            "name": "The Equalizer",
+            "description": "Pelicula de Antoine Fuqua",
+            "categories": [
+                1
+            ],
+            "urlImage": "\/images\/filmCovers\/15TheEqualizer.jpeg",
+            "trailer": "https:\/\/www.youtube.com\/embed\/pm_PnBx2R20?autoplay=1&mute=1&loop=1&playlist=pm_PnBx2R20"
+        }
+    ]
+}

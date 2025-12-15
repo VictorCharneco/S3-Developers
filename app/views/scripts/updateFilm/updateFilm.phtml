@@ -1,0 +1,40 @@
+
+<style>
+    <?php include 'stylesheets/addFilm.css';?>
+</style>
+
+<div class="add-film-container">
+
+    <h2>Modificar datos de pelicula</h2>
+
+    <form action="/updateFilm" method="post" enctype="multipart/form-data">
+        <label for="select-movie" name="select-movie">Selecciona la pelicula a modificar: </label>
+        <select id="select-movie" name="select-movie" required>
+
+            <?php foreach ($this->moviesData as $movie): ?>
+                <option value="<?= $movie["id"] ?>"><?= $movie["name"] ?></option>
+            <?php endforeach; ?>
+        
+        </select>
+
+
+        <label for="name" name="name">Ajustar nombre: </label>
+        <input type="text" id="name" name="name">
+        <label for="description" name="description">Ajustar descripcion: </label>
+        <input type="text" id="description" name="description">
+        <label for="categories">Selecciona categoría: </label>
+        <select id="categories" name="categories">
+
+            <?php foreach ($this->categoriesData as $category): ?>
+                <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+            <?php endforeach; ?>
+        
+        </select>
+        <label for="trailer">Añade un trailer</label>
+        <input type="text" id="trailer" name="trailer" required>
+        <label for="file" id="file">Nueva imagen</label>
+        <input type="file" id="file" name="file" accept="image/*">
+        <button type="submit">Actualizar datos</button>
+    </form>
+
+</div>

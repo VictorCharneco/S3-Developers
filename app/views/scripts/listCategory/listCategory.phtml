@@ -1,0 +1,31 @@
+
+<style>
+    <?php include 'stylesheets/listFilms.css';?>
+    <?php include 'stylesheets/category.css';?>
+</style>
+
+<div class="list-card">
+    <h3>List Categories</h3>
+</div>
+
+<div class="options-btn">
+    <a href="<?= $this->baseUrl() ?>/createCategories"><i class="fa-solid fa-square-plus fa-lg"></i> Create Category</a>
+    <a href="<?= $this->baseUrl() ?>/updateCategories"><i class="fa-solid fa-wrench fa-lg"></i> Update Category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories"><i class="fa-solid fa-trash-can fa-lg"></i> Delete Category</a>
+</div>
+
+<?php $categoryData = Category::allCategory()?>
+
+<div class="list-films-container">
+    <?php foreach($categoryData as $category): ?>
+        <div class="movie-card">
+            <p value="<?= $category['id']; ?>">
+                <img src="<?= str_replace('\/', '/', $category['urlCategoryImg']); ?>"
+                    alt="<?= $category['name']; ?>" 
+                    style="width: 100%; height: auto;">
+            </p>
+            <h3 value="<?= $category['id']; ?>"><?= $category['name']; ?></h3>
+            <p value="<?= $category['id']; ?>"><?= $category['description']; ?></p>
+        </div>
+    <?php endforeach; ?>
+</div>
