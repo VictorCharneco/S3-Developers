@@ -22,6 +22,10 @@ class UpdatefilmController extends ApplicationController{
             $categoryId = (int)$_POST["categories"];
 
             $data = UtilityModel::getFilmsData();
+            $urlVideo = $_POST["trailer"];
+            parse_str(parse_url($urlVideo, PHP_URL_QUERY), $query);
+            $videoId = $query['v'] ?? null;
+            $embedUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=1&loop=1&playlist=$videoId";
             
             foreach($data["movie"] as &$movie){
                 if($movie["id"] == $id){
@@ -33,6 +37,9 @@ class UpdatefilmController extends ApplicationController{
                     }
                     if(!empty($categoryId)) {
                         $movie["categories"] = [$categoryId];
+                    }
+                    if(!empty($embedUrl)) {
+                        $movie["trailer"] = $embedUrl;
                     }
 
                     if(!empty($_FILES["file"]["name"])){
