@@ -1,14 +1,15 @@
 
 <style>
-    <?php include 'stylesheets/style.css'; ?>
+    <?php include 'stylesheets/listFilms.css';?>
+    <?php include 'stylesheets/addfilm.css'; ?>
 </style>
 
-<div class="submenu">
-    <a href="<?= $this->baseUrl() ?>/updateCategories">Update category</a>
-    <a href="<?= $this->baseUrl() ?>/deleteCategories">Delete category</a>
+<div class="options-btn">
+    <a href="<?= $this->baseUrl() ?>/updateCategories"><i class="fa-solid fa-wrench fa-lg"></i> Update Category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories"><i class="fa-solid fa-trash-can fa-lg"></i> Delete Category</a>
 </div>
 
-<div class="container">
+<div class="add-film-container">
     <h2>Create Category</h2>
     <form method="post" action="<?= $this->baseUrl() ?>/createCategories" enctype="multipart/form-data">
         <label for="name">Name</label>

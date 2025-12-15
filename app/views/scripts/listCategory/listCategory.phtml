@@ -1,21 +1,22 @@
 
 <style>
-    <?php include 'stylesheets/style.css';?>
+    <?php include 'stylesheets/listFilms.css';?>
+    <?php include 'stylesheets/category.css';?>
 </style>
 
-<div class="submenu">
-    <a href="<?= $this->baseUrl() ?>/createCategories">Create Category</a>
-    <a href="<?= $this->baseUrl() ?>/updateCategories">Update Category</a>
-    <a href="<?= $this->baseUrl() ?>/deleteCategories">Delete Category</a>
+<div class="list-card">
+    <h3>List Categories</h3>
+</div>
+
+<div class="options-btn">
+    <a href="<?= $this->baseUrl() ?>/createCategories"><i class="fa-solid fa-square-plus fa-lg"></i> Create Category</a>
+    <a href="<?= $this->baseUrl() ?>/updateCategories"><i class="fa-solid fa-wrench fa-lg"></i> Update Category</a>
+    <a href="<?= $this->baseUrl() ?>/deleteCategories"><i class="fa-solid fa-trash-can fa-lg"></i> Delete Category</a>
 </div>
 
 <?php $categoryData = Category::allCategory()?>
 
-<div class="container">
-    <h2>List Categories</h2>
-</div>
-
-<div class="list-container">
+<div class="list-films-container">
     <?php foreach($categoryData as $category): ?>
         <div class="movie-card">
             <p value="<?= $category['id']; ?>">

@@ -17,7 +17,7 @@
         $imagePath = !empty($movie["urlImage"])
             ? $movie["urlImage"]
             : strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
-        
+
         $isBuyed = in_array($movie["id"], $this->filmsBuyedByUser);
     ?>
 
@@ -56,5 +56,3 @@
 <?php endforeach; ?>
 
 </div>
-
-

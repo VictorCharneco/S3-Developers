@@ -28,11 +28,21 @@ class Category extends Model{
         $this->urlCategoryImg = $urlCategoryImg;
     }
 
+    /**
+    * Get all categories.
+    * @return array what containing the categories.
+    */
     public static function allCategory(): array {
         $data = UtilityModel::getJsonCategory();
         return $data["category"];
     }
 
+    /**
+    * Create a new category and save it in the JSON file.
+    * Upload an image associated with the category, generate a unique ID (uniqid()). 
+    * Save data in the JSON file.
+    * @return void Returns NO value.
+    */
     public function createCategory(): void {
         $uploadDir = 'images/categoryImg/';
         $fileName = $_FILES['file']['name'];
@@ -57,7 +67,15 @@ class Category extends Model{
 
         UtilityModel::saveJsonCategory($data);
     }
+
     
+    /**
+    * Updates an existing category and its associated image.
+    * Search for the category by its ID, upload a new image if provided, delete the previous one,
+    * and update the data in the JSON file. If no image is uploaded, keep the existing one.
+    * @param int $id ID of the category to be updated.
+    * @return void Returns NO value.
+    */
     public function updateCategory(int $id): void {
         $this->setId($id);
         $fileName = $_FILES['file']['name'];
@@ -104,7 +122,58 @@ class Category extends Model{
         UtilityModel::saveJsonCategory($data);
     }  
 
-    public static function deleteCategory(int $id): void {
+    /**
+     * Checks if a category is being used by any movie.
+     * @param int $id The ID of the category to check.
+     * @return bool Returns true if the category is being used, false otherwise.
+     */
+    private static function isCategoryUsed(int $id): bool {
+        $filmsData = UtilityModel::getFilmsData();
+        $movies = $filmsData['movie'] ?? [];
+
+        foreach ($movies as $movie) {
+            if (isset($movie['categories']) && in_array($id, (array)$movie['categories'])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Updates the category IDs in all movies based on the provided mapping.
+     * @param array $idMap An associative array mapping old category IDs to new ones.
+     * @return void Returns NO value.
+     */
+    private static function updateFilmCategoriesIds(array $idMap): void {
+        $filmsData = UtilityModel::getFilmsData();
+        $movies = $filmsData['movie'] ?? [];
+
+        foreach ($movies as &$movie) {
+            if (isset($movie['categories']) && is_array($movie['categories'])) {
+                foreach ($movie['categories'] as &$catId) {
+                    if (isset($idMap[$catId])) {
+                        $catId = $idMap[$catId];
+                    }
+                }
+                unset($catId);
+            }
+        }
+        unset($movie);
+
+        $filmsData['movie'] = $movies;
+        UtilityModel::saveFilmData($filmsData);
+    }
+
+    /**
+     * Deletes a category by its ID, updating the IDs of the remaining categories and movies.
+     * @param int $id The ID of the category to delete.
+     * @return string|null Returns a message if the category cannot be deleted, or null if it was deleted successfully.
+     */
+    public static function deleteCategory(int $id): ?string {
+        if (self::isCategoryUsed($id)) {
+            return "Sorry, the category cannot be deleted because it is assigned to one or more films.";
+        }
+
         $data = UtilityModel::getJsonCategory();
         
         foreach ($data["category"] as $position => $category) {
@@ -122,14 +191,21 @@ class Category extends Model{
             }
         }
 
-        $data["category"] = array_values($data["category"]);
-        
+            $data["category"] = array_values($data["category"]);
+        $idMap = [];
         foreach ($data["category"] as $index => &$category) {
-            $category['id'] = $index + 1;
-        }        
+            $oldId = $category['id'];
+            $newId = $index + 1;
+            $category['id'] = $newId;
+            $idMap[$oldId] = $newId;
+        }
         unset($category);
-        
+
         UtilityModel::saveJsonCategory($data);
+
+        self::updateFilmCategoriesIds($idMap);
+
+        return null;
     }    
 }
 

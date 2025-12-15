@@ -47,5 +47,6 @@ class ListfilmsController extends ApplicationController{
     }
 
 
+    }
 
 ?>
