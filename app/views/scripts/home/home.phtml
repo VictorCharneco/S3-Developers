@@ -16,9 +16,15 @@
             Hemos creado esta web como un espacio práctico donde podrás:
         </p>
         <ul class="intro-list">
-            <li onclick="location.href='/listFilms'">📽️ Explorar películas de cine organizadas de forma clara y sencilla.</li>
-            <li onclick="location.href='/listCategories'">🎭 Descubrir categorías que te ayudarán a encontrar justo lo que buscas.</li>
-            <li onclick="location.href='/register'">🛒 Seleccionar tus películas favoritas y comprarlas para que se añadan a tu biblioteca.</li>
+            <?php if (!empty($_SESSION['isLoggedIn'])): ?>
+                <li onclick="location.href='/listFilms'">📽️ Explorar películas de cine organizadas de forma clara y sencilla.</li>
+                <li onclick="location.href='/listCategories'">🎭 Descubrir categorías que te ayudarán a encontrar justo lo que buscas.</li>
+                <li onclick="location.href='/myLibrary'">🛒 Seleccionar tus películas favoritas y comprarlas para que se añadan a tu biblioteca.</li>
+            <?php else: ?>
+                <li onclick="location.href='/login'">📽️ Explorar películas de cine organizadas de forma clara y sencilla.</li>
+                <li onclick="location.href='/login'">🎭 Descubrir categorías que te ayudarán a encontrar justo lo que buscas.</li>
+                <li onclick="location.href='/login'">🛒 Seleccionar tus películas favoritas y comprarlas para que se añadan a tu biblioteca.</li>
+            <?php endif; ?>
         </ul>
         <p class="intro-text">
             Nuestro objetivo es aprender, crecer y al mismo tiempo ofrecerte un servicio útil, con una experiencia visual 
