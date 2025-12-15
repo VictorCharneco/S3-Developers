@@ -95,8 +95,11 @@ a:hover {
     color: #60a5fa;
 }
 
-
 .avatar{
     height: 75px;
     width: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 15px;
+    vertical-align: middle;
 }

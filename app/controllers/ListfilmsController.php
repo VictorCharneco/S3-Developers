@@ -20,11 +20,14 @@ class ListfilmsController extends ApplicationController{
         foreach($categoryData as $cat){
             $categoryNameById[$cat["id"]] = $cat["name"];
         }
+    
+        if(!empty($_SESSION["username"])){
+            $user = new User ($_SESSION["username"],false);
+            $this -> filmsBuyedByUser = $user->getBuyedFilms();
+            $this->view->moviesData = $this->moviesData;
+            $this->view->filmsBuyedByUser = $this->filmsBuyedByUser;
+        }
 
-        $user = new User ($_SESSION["username"],false);
-        $this -> filmsBuyedByUser = $user->getBuyedFilms();
-        $this->view->moviesData = $this->moviesData;
-        $this->view->filmsBuyedByUser = $this->filmsBuyedByUser;
 
             foreach($this -> moviesData as &$movie){
             if(empty($movie["categories"])){
@@ -35,7 +38,12 @@ class ListfilmsController extends ApplicationController{
             };
             $movie["imagePath"] = $movie["urlImage"];
         }
+         $this->view->moviesData = $this->moviesData;
+            $this->view->filmsBuyedByUser = $this->filmsBuyedByUser;
         $this->view->moviesData = $this -> moviesData;
+    }
+
+
     }
 
 
