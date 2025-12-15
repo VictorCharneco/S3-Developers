@@ -48,7 +48,7 @@ class EditProfileController extends ApplicationController {
             }
 
             // Crear objeto usuario actual
-            $user = new User($username, $password,false);
+            $user = new User($username,false);
             // Intentar editar
             if ($user->editUser($_SESSION["id"],$username,$password,$nameAvatar)) {
                 if(!$emptyAvatar){

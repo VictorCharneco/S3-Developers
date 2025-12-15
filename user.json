@@ -67,6 +67,15 @@
             "films": [
                 17
             ]
+        },
+        {
+            "id": 8,
+            "username": "lxcxsito4",
+            "password": "lucas234",
+            "urlAvatar": "\/images\/userAvatars\/momo.jpg",
+            "films": [
+                17
+            ]
         }
     ]
 }

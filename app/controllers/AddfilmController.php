@@ -26,7 +26,7 @@ class AddfilmController extends ApplicationController{
             $urlVideo = $_POST["trailer"];
             parse_str(parse_url($urlVideo, PHP_URL_QUERY), $query);
             $videoId = $query['v'] ?? null;
-            $embedUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=0&loop=1&playlist=$videoId";
+            $embedUrl = "https://www.youtube.com/embed/$videoId?autoplay=1&mute=1&loop=1&playlist=$videoId";
 
             if(!empty($_FILES["file"]["name"])){
                 $dire = "images/filmCovers/";
