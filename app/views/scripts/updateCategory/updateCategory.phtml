@@ -15,7 +15,8 @@
         <label for="name">Name</label>
         <select name="id">
             <?php foreach ($this -> data["category"] as $cat): ?> 
-                <option  value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
+                <option style="background-color: #222;
+" value="<?= $cat['id'] ?>"><?= $cat['name'] ?></option>
             <?php endforeach; ?>
         </select>
         
