@@ -2,6 +2,7 @@
     <?php include 'stylesheets/listFilms.css'; ?>
 </style>
 
+
 <div class="options-btn">
     <button onclick="location.href='/addFilm'"><i class="fa-solid fa-square-plus fa-lg"></i> Añadir Pelicula</button>
     <button onclick="location.href='/updateFilm'"><i class="fa-solid fa-wrench fa-lg"></i> Modificar Pelicula</button>
@@ -16,7 +17,7 @@
         $imagePath = !empty($movie["urlImage"])
             ? $movie["urlImage"]
             : strtolower(str_replace(" ", "", $movie["name"])) . ".jpg";
-
+        
         $isBuyed = in_array($movie["id"], $this->filmsBuyedByUser);
     ?>
 
@@ -47,7 +48,7 @@
                 <button type="submit">Buy Film</button>
             </form>
         <?php else: ?>
-            <button disabled>✔ Comprada</button>
+            <button disabled>✔ Buyed</button>
         <?php endif; ?>
 
     </div>
