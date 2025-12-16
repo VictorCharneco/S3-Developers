@@ -9,7 +9,7 @@
         <label for="film" name="film">¿Qué película quieres borrar?</label>
         <select id="film" name="film" required>
             <?php foreach ($moviesData as $movie): ?>
-                <option value =" <?php echo $movie['id']; ?> ">
+                <option style="background-color: #222" value =" <?php echo $movie['id']; ?> ">
                                  <?php echo $movie['name']; ?>
                 </option>
             <?php endforeach; ?>

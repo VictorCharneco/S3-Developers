@@ -1,41 +1,45 @@
 <style>
-    <?php include 'stylesheets/home.css';
-     ?>
+    <?php include 'stylesheets/home.css'; ?>
 </style>
+
 <div class="container">
 
-    <h1 class= "main-intro">Welcome to Developers Movies</h1>
+    <h1 class="main-intro">Welcome to Developers Movies</h1>
+
     <div class="logo-img">
         <img src="images/filmCovers/hero.png" alt="hero_home">
     </div>
 
     <div class="home-intro">
-        <h2 class="intro-title">¡BIENVENIDO!</h2>
+        <h2 class="intro-title">WELCOME!</h2>
+
         <p class="intro-text">
-            Somos <span class="brand">DEVMOV</span>, un pequeño grupo de desarrolladores apasionados por el cine y la tecnología.
-            Hemos creado esta web como un espacio práctico donde podrás:
+            We are <span class="brand">DEVMOV</span>, a small group of developers passionate about cinema and technology.
+            We have created this website as a practical space where you can:
         </p>
+
         <ul class="intro-list">
             <?php if (!empty($_SESSION['isLoggedIn'])): ?>
-                <li onclick="location.href='/listFilms'">📽️ Explorar películas de cine organizadas de forma clara y sencilla.</li>
-                <li onclick="location.href='/listCategories'">🎭 Descubrir categorías que te ayudarán a encontrar justo lo que buscas.</li>
-                <li onclick="location.href='/myLibrary'">🛒 Seleccionar tus películas favoritas y comprarlas para que se añadan a tu biblioteca.</li>
+                <li onclick="location.href='/listFilms'">📽️ Explore movies in a clear and well-organized way.</li>
+                <li onclick="location.href='/listCategories'">🎭 Discover categories that help you find exactly what you're looking for.</li>
+                <li onclick="location.href='/myLibrary'">🛒 Select your favorite movies and buy them to add to your library.</li>
             <?php else: ?>
-                <li onclick="location.href='/login'">📽️ Explorar películas de cine organizadas de forma clara y sencilla.</li>
-                <li onclick="location.href='/login'">🎭 Descubrir categorías que te ayudarán a encontrar justo lo que buscas.</li>
-                <li onclick="location.href='/login'">🛒 Seleccionar tus películas favoritas y comprarlas para que se añadan a tu biblioteca.</li>
+                <li onclick="location.href='/login'">📽️ Explore movies in a clear and well-organized way.</li>
+                <li onclick="location.href='/login'">🎭 Discover categories that help you find exactly what you're looking for.</li>
+                <li onclick="location.href='/login'">🛒 Select your favorite movies and buy them to add to your library.</li>
             <?php endif; ?>
         </ul>
+
         <p class="intro-text">
-            Nuestro objetivo es aprender, crecer y al mismo tiempo ofrecerte un servicio útil, con una experiencia visual 
-            moderna y cuidada. Aunque somos un equipo pequeño, trabajamos con dedicación y profesionalidad para que disfrutes 
-            navegando por nuestra plataforma tanto como nosotros disfrutamos construyéndola.
+            Our goal is to learn, grow, and at the same time offer you a useful service with a modern and carefully crafted
+            visual experience. Although we are a small team, we work with dedication and professionalism so that you enjoy
+            browsing our platform as much as we enjoy building it.
         </p>
+
         <h4 class="intro-footer">
-          <p>Gracias por acompañarnos en este proyecto.</p>
-          <p>¡El cine y la tecnología se encuentran aquí, en <span class="brand">DEVMOV</span>!</p>
+            <p>Thank you for being part of this project.</p>
+            <p>Cinema and technology meet here, at <span class="brand">DEVMOV</span>!</p>
         </h4>
     </div>
 
-</div>
 </div>
