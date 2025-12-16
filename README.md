@@ -18,34 +18,6 @@ It allows users to browse movies, organize them by category, create their own pe
 - Create, update, and delete categories
 - Images in movies and categories
 
-## Structure
-
-project S3-Developers/
-  ├── app/
-  │   ├── controllers/          # Controllers MVC
-  │   │   ├── fileNameController.php
-  │   │   └── ...Controller.php
-  │   ├── models/               # Models MVC
-  │   │   ├── fileName.php
-  │   │   └── ...php
-  │   └── views/                # Views MVC
-  │       ├── layouts/
-  │       └── scripts/
-  │             ├── fileName.phtml
-  │             └── ...phtml
-  ├── config/
-  ├── lib/
-  ├── web/                      # Public directory
-  │   ├── index.php             # Home
-  │   ├── images/               # Multimedia
-  │   │   ├── filmCovers/
-  │   │   ├── categoryImg/
-  │   │   └── userAvatars/
-  │   ├── stylesheets/          # CSS styles
-  │   └── .../
-  ├── user.json, films.json, categories.json    # Database
-  └── README_PROJECT.md Main documentation
-
 ## Technologies 
 
 - Architectural pattern: MVC (Model-View-Controller)
