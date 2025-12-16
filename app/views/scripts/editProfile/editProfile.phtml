@@ -5,7 +5,7 @@
     <form method="post" enctype="multipart/form-data" action="<?= $this->baseUrl() ?>/edit_profile">
 
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" placeholder="New Username">
         <p class="validation">
            <?php echo $this -> usernamevalidationError ; ?>
         </p>
@@ -13,14 +13,21 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="New Password">
          <p class="validation">
-           <?php echo $this -> passwordvalidationError ; 
-?>
-
-        <input type="file" class="urlAvatar" name="urlAvatar" id="urAvatar" accept="image/png, image/jpeg">
-        <button type="submit" class="button" editProfileAction>Save Changes</button>
-
+           <?php echo $this -> passwordvalidationError ;?>
+        </p>
+<div class="avatar-upload">
+    <input 
+        type="file" 
+        name="urlAvatar" 
+        id="urlAvatar" 
+        accept="image/png, image/jpeg"
+    >
+    <label for="urlAvatar" class="avatar-button">
+        <i class="fa-solid fa-user"></i>
+        Choose Avatar
+    </label>
+</div>  
+<button type="submit" class="button" editProfileAction>Save Changes</button>
     </form>
-
-
 
 </div>

@@ -1,89 +1,60 @@
-Esto es una prueba
-# PHP initial Project
+# s3-04-PHP i Patterns 
 
-PRUEBA BRANCH
+## Description: Tasca S3.03. Entrega d'exercici: Developers Team (Level 1)
 
+Web application for managing a movie catalog with a user system, categories, and personal library.
+Movie management platform built with PHP using an MVC (Model-View-Controller) pattern.
+It allows users to browse movies, organize them by category, create their own personal library, and manage user profiles.
 
+## Features:
 
-Main structure of php project. Folders / files:
-- **app**
-  - **controllers**
-  - **models**
-  - **views**
-- **config**
-- **lib**
-  - **base**
-- **web**
+- Registration and login
+- Personal profile with avatar
+- Private movie collection
+- Movie catalog
+- Movie trailers to embed from YouTube
+- Movie purchases
+- Add, edit, and delete movies
+- Create, update, and delete categories
+- Images in movies and categories
 
-### Usage
+## Technologies 
 
-The web/index.php is the heart of the system.
-This means that your web applications root folder is the “web” folder.
+- Architectural pattern: MVC (Model-View-Controller)
+- Frontend: HTML5, CSS3
+- Backend: PHP
+- Database: JSON files
 
-All requests go through this file and it decides how the routing of the app
-should be.
-You can add additional hooks in this file to add certain routes.
+### First, make sure you have the following installed:
 
-### Project Structure
+- PHP 7.0 or higher
+- Web server (Apache/Nginx)
+- Write permissions and extension enabled for JSON files
 
-The root of the project holds a few directories:
-**/app** This is the folder where your magic will happen. Use the views, controllers and models folder for your app code.
-**/config** this folder holds a few configuration files. Currently only the connection to the database.
-**/lib** This is where you should put external libraries and other external files.
-**/lib/base** The library files. Don’t change these :)
-**/web** This folder holds files that are to be “downloaded” from your app. Stylesheets, javascripts and images used. (and more of course)
+## Installation
 
-The system uses a basic MVC structure, with your web app’s files located in the
-“app” folder.
+Clone the repository. To install this project, follow these steps:
+  Git Bash
+  git clone https://github.com/VictorCharneco/S3-Developers.git
 
-#### app/controllers
-Your application’s controllers should be defined here.
+Move into the project directory:
+	cd S3-Developers
 
-All controller names should end with “Controller”. E.g. TestController.
-All controllers should inherit the library’s “Controller” class.
-However, you should generally just make an ApplicationController, which extends
-the Controller. Then you can defined beforeFilters etc in that, which will get run
-at every request.
-
-#### app/models
-Models handles database interaction etc.
-
-All models should inherit from the Model class, which provides basic functionality.
-The Model class handles basic functionality such as:
-
-Setting up a database connection (using PDO)
-fetchOne(ID)
-save(array) → both update/create
-delete(ID)
-app/views
-Your view files.
-The structure is made so that having a controller named TestController, it looks
-in the app/views/test/ folder for it’s view files.
-
-All view files end with .phtml
-Having an action in the TestController called index, the view file
-app/views/test/index.phtml will be rendered as default.
-
-#### config/routes.php
-Your routes around the system needs to be defined here.
-A route consists of the URL you want to call + the controller#action you want it
-to hit.
-
-An example is:
-$routes = array(
-‘/test’ => ‘test#index’ // this will hit the TestController’s indexAction method.
-);
-
-#### Error handling
-A general error handling has been added.
-
-If a route doesn’t exist, then the error controller is hit.
-If some other exception was thrown, the error controller is hit.
-As default, the error controller just shows the exception occured, so remember
-to style the error controller’s view file (app/views/error/error.phtml)
+From inside the S3-Developers directory, execute the following command:
+	php -S localhost:8000 -t web
 
 
-### Utilities
-- [PHP Developers Guide](https://www.php.net/manual/en/index.php).
-- .gitignore file configuration. [See Official Docs](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-- Git branches. [See Official Docs](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+## Access the application
+
+http://localhost:8000/home
+
+## Authors
+
+Lucas López
+Victor Charneco
+Vicenç Sirvent
+
+## Contact
+
+IT ACADEMY - Full Stack PHP 2025-2026
+

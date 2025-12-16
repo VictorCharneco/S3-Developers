@@ -4,9 +4,18 @@
             "id": 2,
             "username": "lucas123",
             "password": "lucas123",
-            "urlAvatar": "\/images\/userAvatars\/tenet.jpg",
+            "urlAvatar": "\/images\/userAvatars\/itachi.jpg",
             "films": [
                 2
+            ]
+        },
+        {
+            "id": 3,
+            "username": "lucas1",
+            "password": "lucas123",
+            "urlAvatar": "\/images\/userAvatars\/oppenheimer.jpg",
+            "films": [
+                1
             ]
         }
     ]

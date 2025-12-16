@@ -12,7 +12,7 @@
         <select id="select-movie" name="select-movie" required>
 
             <?php foreach ($this->moviesData as $movie): ?>
-                <option value="<?= $movie["id"] ?>"><?= $movie["name"] ?></option>
+                <option style="background-color: #222" value="<?= $movie["id"] ?>"><?= $movie["name"] ?></option>
             <?php endforeach; ?>
         
         </select>
@@ -26,7 +26,7 @@
         <select id="categories" name="categories">
 
             <?php foreach ($this->categoriesData as $category): ?>
-                <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+                <option style="background-color: #222" value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
             <?php endforeach; ?>
         
         </select>

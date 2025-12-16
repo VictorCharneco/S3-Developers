@@ -13,7 +13,7 @@
         <label for"categories" name="categories">Selecciona categoría: </label>
         <select id="categories" name="categories" required>
             <?php foreach ($this->categoriesData as $category): ?>
-                <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+                <option style="background-color: #222" value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
             <?php endforeach; ?>
         </select>
         <label for="file" id="file">Añade una imagen</label>
